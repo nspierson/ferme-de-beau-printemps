@@ -1,1 +1,3 @@
-test product index
+<% @products.each do |product| %>
+<%= link_to product.name, product_path(product) %>
+<% end %>
