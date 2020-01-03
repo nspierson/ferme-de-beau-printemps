@@ -2,3 +2,5 @@ test products show
 
 <%= @product.name %>
 <%= @product.description %>
+
+<%= link_to 'Add to Cart', add_to_cart_path(@product), method: :put %>
