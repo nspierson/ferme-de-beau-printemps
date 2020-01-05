@@ -2,5 +2,7 @@ test products show
 
 <%= @product.name %>
 <%= @product.description %>
-
+<%= humanized_money_with_symbol(@product.price) %>
 <%= link_to 'Add to Cart', add_to_cart_path(@product), method: :put %>
+
+
