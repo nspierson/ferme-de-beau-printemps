@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_03_123736) do
+ActiveRecord::Schema.define(version: 2020_01_05_120042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,31 @@ ActiveRecord::Schema.define(version: 2020_01_03_123736) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "order_id"
+    t.bigint "product_id"
+    t.integer "quantity"
+    t.integer "price_for_one"
+    t.integer "total_price"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+    t.index ["user_id"], name: "index_order_items_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "product_categories", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "category_id"
@@ -54,12 +79,23 @@ ActiveRecord::Schema.define(version: 2020_01_03_123736) do
     t.integer "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price"
+    t.integer "price_cents", default: 0, null: false
+    t.string "sku"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "admin", default: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "street_name"
+    t.string "street_number"
+    t.string "postal_code"
+    t.string "city"
+    t.string "country"
+    t.text "optional"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -69,6 +105,10 @@ ActiveRecord::Schema.define(version: 2020_01_03_123736) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
+  add_foreign_key "order_items", "users"
+  add_foreign_key "orders", "users"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
 end
