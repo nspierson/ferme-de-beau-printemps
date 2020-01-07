@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   def create
     @user = current_user
     cart = @user.current_user_cart
@@ -21,7 +22,7 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: 1,
       }],
-      success_url: 'http://localhost:3000/products',
+      success_url: "http://localhost:3000/checkout/#{order.id}",
       cancel_url: 'http://localhost:3000/products',
     )
     order.update(checkout_session_id: session.id)
@@ -29,8 +30,12 @@ class OrdersController < ApplicationController
     redirect_to new_order_payment_path(order)
   end
 
+  def index
+    @orders = Order.where(user_id: current_user.id)
+  end
+
   def show
-    @order = current_user.orders.find(params[:id])
+    @order = Order.find(params[:id])
     @order_items = OrderItem.where(order_id: @order.id)
   end
 end
