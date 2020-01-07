@@ -1,0 +1,39 @@
+.home_banner {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('home.jpeg');
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: 50% 0px;
+  padding: 350px 0px;
+  background-attachment: fixed;
+
+  a {
+    background-color: #43E140;
+    padding: 8px 25px;
+    color: white;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  p {
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  h5 {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  span {
+    color: #43E140;
+  }
+}

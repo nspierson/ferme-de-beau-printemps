@@ -1,4 +1,69 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home_banner">
+  <h1 class="text-center">FERME DE <span>BEAU</span> PRINTEMPS</h1>
+  <h5 class="text-center">AGRICULTURE BIOLOGIQUE</h5>
+  <p class="text-center">Direct de l'éleveur au consommateur</p>
+  <p class="text-center"><%= link_to 'DÉCOUVRIR NOS PRODUITS', products_path, class: "btn btn-success" %></p>
+</div>
+<div class="container">
+  <div class="qualities">
+    <div class="d-flex justify-content-around">
+      <div>
+        <p class="text-center"><%= image_tag 'clock.png' %></p>
+        <p><strong>Livraison Rapide</strong></p>
+      </div>
+      <div>
+        <p class="text-center"><%= image_tag 'premium.png' %></p>
+        <p><strong>Produits de qualité</strong></p>
+      </div>
+      <div>
+        <p class="text-center"><%= image_tag 'eco.png' %>
+        <p><strong>Bio Certifié</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="product_moment">
+      <div class="d-flex justify-content-center">
+        <h4>[NOUVEAU !] RAVIOLES DE LA FERME AU BOEUF & LEGUMES 250GR</h4>
+      </div>
+      <div class="image d-flex">
+        <div>
+          <%= image_tag('ravioles.png') %>
+        </div>
+        <div>
+          <div class="add_to_cart d-flex justify-content-right">
+            <%= link_to products_path do %>
+              <i class="fas fa-shopping-cart"></i> Ajouter au panier
+            <% end %>
+          </div>
+        <p>Quatre minutes de cuisson et le repas est servi !
+            Féculents, protéines, légumes... Accompagnées d'une petite salade, ces ravioles constitueront un excellent repas rapide, sain et qui conserve toutes les qualités d'un produit artisanal fabriqué par votre producteur paysan !
+            <br>
+            Sauce à la crème, sauce béchamel, sauce tomate, bouillon de légume, marier les avec ce qui vous plaira !
+            Pour une touche gourmande, saupoudrez de parmesan et agrémentez d'un filet d'huile d'olive !
+            <br>
+            <em>BŒUF de la Ferme & Légumes : Pâtes : Farine de blé tendre & blé dur, Œufs Farce : Bœuf (origine : animal né et élevé sur la ferme), Poireaux, Persil, Ail, Huile d’Olive, Sel, Poivre.</em>
+            <br>
+            Livrées congelées à cuire congelées 4 min à l’eau bouillante.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Products', @products_path %>
+  <div class="about">
+    <h3 class="text-center">Un petit mot à propos de <span>NOUS</span></h3>
+    <div class="d-flex align-items-center">
+      <%= image_tag 'michel_home.png' %>
+      <div>
+      <h4 class="text-center">Michel Botzung, depuis tout petit il s'est passionné pour l'agriculture à la ferme familiale de Beau Printemps.</h4>
+      <p><i class="fas fa-quote-left"></i></p>
+      <p class="michel-descript text-center"><em>Je veux revenir à l’agriculture d’autrefois avec des éleveurs qui ont un débouché local pour leurs animaux qu’ils font grandir avec amour et convictions.</em></p>
+      <p class="text-right"><i class="fas fa-quote-right"></i></p>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

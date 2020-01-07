@@ -1,12 +1,13 @@
 <div class="container">
-  <h3>Votre commande du <%= @order.created_at %></h3>
+  <h3>Votre commande du <%#= @order.created_at %></h3>
 
-  <% @order_items.each do |item| %>
-    <div>
-      <%= item.name %>
-      <%= item.quantity %>
-    </div>
+  <p>User_id :<%= @order.user_id %></p>
+
+  <p>Prix :<%= @order.amount_cents %></p>
+  <p>Produits :<% @order_items.each do |item| %></p>
+    <p><%= item.name %></p>
   <% end %>
-  Acompte déjà payé :<%= @order.amount_cents %> €
-  Reste à payer à la reception :
+
+  Acompte déjà payé :<%#= @order.amount_cents %> €
+  Reste à payer à la reception : €
 </div>

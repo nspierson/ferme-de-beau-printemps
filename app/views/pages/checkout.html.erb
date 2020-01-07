@@ -1,0 +1,8 @@
+<%= @order.created_at %>
+<% @order.order_items.each do |item| %>
+<%= item.name %>
+<%= item.quantity %>
+<%= humanized_money_with_symbol item.price_for_one %>
+<%= humanized_money_with_symbol item.total_price %>
+<!-- <%= humanized_money_with_symbol @order.amount_cents %> -->
+<% end %>
