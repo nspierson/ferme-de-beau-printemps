@@ -1,7 +1,28 @@
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
-  <% end %>
-</ul>
+<div class="home_banner">
+  <h1 class="text-center">FERME DE <span>BEAU</span> PRINTEMPS</h1>
+  <h5 class="text-center">AGRICULTURE BIOLOGIQUE</h5>
+  <p class="text-center">Direct de l'éleveur au consommateur</p>
+</div>
+<div class="container">
+    <p style="margin-top: 15px;"><strong><%= @products.size %> Produits dans notre boutique actuellement :</strong></p>
+
+  <div class="cards">
+    <% @products.each do |product| %>
+      <%= link_to product_path(product) do %>
+        <div data-aos="fade-up">
+        <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.image_url %>);">
+        <div class="product-name">
+          <%= product.name %>
+        </div>
+        <div class="product-place">
+        </div>
+        <div class="product-price text-right">
+          <span>Acompte: <%= humanized_money_with_symbol(product.price) %></span>
+        </div>
+        </div>
+    </div>
+      <% end %>
+    <% end %>
+  </div>
 
 
