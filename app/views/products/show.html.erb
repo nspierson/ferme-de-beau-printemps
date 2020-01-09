@@ -1,3 +1,4 @@
+<%= render 'shared/navbar' %>
 <div class="home_banner">
   <h1 class="text-center">FERME DE <span>BEAU</span> PRINTEMPS</h1>
   <h5 class="text-center">AGRICULTURE BIOLOGIQUE</h5>
@@ -6,16 +7,17 @@
 <div class="container">
   <div class="product d-flex">
     <div class="product-image">
-    <%= image_tag('https://source.unsplash.com/random/550x400') %>
+      <%= image_tag('steakboeuf.png', height: 400, width: 550) %>
     </div>
     <div class="product-description">
       <h1><%= @product.name %></h1>
-      <div class="d-flex align-items-center justify-content-around">
-        <h4 style="opacity: 0.7;">Acompte: <%= humanized_money_with_symbol(@product.price) %></h4>
+      <div class="d-flex align-items-center justify-content-between">
+        <h4 style="opacity: 0.7;">Acompte: <%= @product.price %>€</h4>
+        </%></h4>
         <p><%= link_to 'AJOUTER AU PANIER', add_to_cart_path(@product), method: :put %></p>
       </div>
       <div class="description">
-        <p>Acompte de <%= humanized_money_with_symbol(@product.price) %> à la commande<br>21€/kg soit 52,5€ au total</p>
+        <p>Acompte de <%= @product.price %>€ à la commande<br>21€/kg soit 52,5€ au total</p>
         <p><strong>Votre colis contient :</strong></p>
         <p> 1,75KG de steak haché de boeuf race Limousine en Agriculture Biologique.<br>
             0,75 kg de steak de boeuf race Limousine en Agriculture Biologique

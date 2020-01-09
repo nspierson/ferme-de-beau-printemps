@@ -32,6 +32,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.where(user_id: current_user.id)
+    @all_orders = Order.all
   end
 
   def show

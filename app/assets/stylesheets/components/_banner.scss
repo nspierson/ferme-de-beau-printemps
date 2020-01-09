@@ -1,5 +1,5 @@
 .home_banner {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('home.jpeg');
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('home_test.png');
   width: 100vw;
   height: 100vh;
   background-size: cover;
@@ -36,4 +36,16 @@
   span {
     color: #43E140;
   }
+}
+
+.home-medium-banner {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('photoveau.png');
+  height: 70vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: 50% 0px;
+  padding: 350px 0px;
+  background-attachment: fixed;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
