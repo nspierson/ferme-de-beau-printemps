@@ -18,4 +18,7 @@ class PagesController < ApplicationController
     @user = current_user
     @order = @user.orders.last
   end
+
+  def delivery_zone
+  end
 end

@@ -1,43 +1,51 @@
-<h1>Votre Panier ! (<%= pluralize(@cart_products_with_qty.size, 'Article') %> )</h1>
-<div class="col-8 offset-4">
-<table>
-    <thead>
-        <tr>
-            <th class="cart-table">Produits</th>
-            <th class="cart-table">Prix</th>
-            <th class="cart-table">Quantité</th>
-            <th class="cart-table">Sous-total</th>
-        </tr>
-    </thead>
-<% @cart_products_with_qty.each do |array| %>
-  <% product = array[0] %>
-  <% qty = array[1] %>
-    <tbody>
-        <tr>
-            <td class="cart-table"><%= product.name %></td>
-            <td><%= product.price %>€</td>
-            <td><%= qty %></td>
-            <td><%= product.price * qty.to_i %>€</td>
-            <td class="cart-table-plus-moins"><%= link_to '+', add_to_cart_path(product), method: :put %></td>
-            <td class="cart-table-plus-moins"><%= link_to '-', remove_one_cart_path(product), method: :put %></td>
-            <td><%= link_to 'Remove', remove_from_cart_path(product), method: :put %></td>
-        </tr>
-
-
-
-
-<% end %>
-    <tr>
-      <td colspan="3"><h5>Total</h5></td>
-      <td><h5><%= @cart_total %>€</h5></td>
-    </tr>
-    </tbody>
-</table>
-
-<%= form_tag orders_path do %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
-
+<%= render 'shared/navbar_colored' %>
+<div class="container">
+  <h2 class="text-center cart-title">Votre Panier: (<%= pluralize(@cart_products_with_qty.size, 'Article') %> )</h2>
+  <div class="col-10 offset-1 cart-grid">
+  <% @cart_products_with_qty.each do |array| %>
+    <% product = array[0] %>
+    <% qty = array[1] %>
+    <div class="cart-product d-flex align-items-center">
+      <div class="cart-product-img"><%= image_tag('steakboeuf.png', height: '64', width: '96') %></div>
+      <div class="cart-product-name">
+        <p><%= product.name %><br>
+        <%= link_to 'Remove', remove_from_cart_path(product), method: :put %></p>
+      </div>
+      <div class="cart-product-price">
+        <p class="text-center"><%= product.price %>€</p>
+      </div>
+      <div class="cart-product-qty d-flex justify-content-center">
+        <p class="text-center"><%= link_to '+', add_to_cart_path(product), method: :put %><%= qty %><%= link_to '-', remove_one_cart_path(product), method: :put %></p>
+      </div>
+      <div class="cart-product-total">
+        <p class="text-right"><%= product.price * qty.to_i %>€</p>
+      </div>
+    </div>
+  <% end %>
 </div>
+<div class="cart-total text-right col-10 offset-1">
+  <p><strong>Total:</strong> <%= @cart_total %>€</p>
+  <p><%= link_to 'CONTINUER MES ACHATS', products_path, class: 'cart-btn-ctn' %></p>
+  <% if @cart_products_with_qty.size >= 1 %>
+    <%= form_tag orders_path do %>
+      <%= submit_tag 'PROCEDER AU PAIMENT', class: 'cart-btn' %>
+    <% end %>
+  <% else %>
+  <% end %>
+  <p class="mt-4">Veuillez prendre connaissance de la <strong>zone de livraison</strong></p>
+  <p>En cliquant sur "Procéder au paiement" vous acceptez <strong>les conditions générales de vente</strong> et reconnaissez avoir pris connaissance de ne payer qu'un acompte. Le solde sera à payer à la livraison du colis en fonction du poids exact livré.
+
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 

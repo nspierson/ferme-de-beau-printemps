@@ -11,6 +11,7 @@ gem 'redis'
 gem 'hiredis'
 gem 'money-rails'
 gem 'stripe'
+gem 'stripe_event'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
