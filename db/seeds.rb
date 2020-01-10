@@ -14,7 +14,7 @@ admin.save
 
 # PRODUCTS
 puts "-------------------------- Création Products --------------------------"
-filet = Product.new(name: "2 Steak de Filet de Boeuf AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 750, image_url:"assets/fdb.png", stock: 50, price_cents: 1000)
+filet = Product.new(name: "2 Steak de Filet de Boeuf AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 750, image_url:"fdb.png", stock: 50, price_cents: 1000)
 filet.save
 steak = Product.new(name: "2 Steaks AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 750, image_url:"assets/steakboeuf.png", stock: 40 ,price_cents: 1000)
 steak.save
