@@ -1,2 +1,2 @@
 
-REDIS = Redis.new(:driver => :hiredis)
+REDIS = Redis.new
