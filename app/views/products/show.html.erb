@@ -1,13 +1,13 @@
-<%= render 'shared/navbar' %>
-<div class="home_banner">
+<%= render 'shared/navbar_colored' %>
+<!-- <div class="home_banner">
   <h1 class="text-center">FERME DE <span>BEAU</span> PRINTEMPS</h1>
   <h5 class="text-center">AGRICULTURE BIOLOGIQUE</h5>
   <p class="text-center">Direct de l'éleveur au consommateur</p>
-</div>
+</div> -->
 <div class="container">
-  <div class="product d-flex">
+  <div style="margin-top: 100px;"class="product d-flex">
     <div class="product-image">
-      <%= image_tag('steakboeuf.png', height: 400, width: 550) %>
+      <%= image_tag(@product.show_image_url, height: 380, width: 550) %>
     </div>
     <div class="product-description">
       <h1><%= @product.name %></h1>
@@ -24,7 +24,7 @@
             Viande savoureuse et maturée minimum 10 jours. Particulièrement tendre.</p>
         <p><strong>Conditions de vente & Livraison :</strong></p>
           <p><strong>Acompte de 20€ & Frais de ports de 1,90€</strong> à régler <strong>en</strong> ligne lors de la commande (le solde sera à régler lors de la livraison selon le poids exact du colis +/- 5%
-          Pour toute question appelez Michel au 06 58 96 38 05 !
+          Pour toute question appelez Michel au <strong>06 58 96 38 05</strong> !
           <p><strong>Informations complementaires sur nos produits :</strong></p>
           Viande de race Limousine issue de la Ferme de Beau Printemps à Petit-Réderching, exploitée par la famille BOTZUNG en Agriculture Biologique.
           Les animaux sont nourris essentiellement à l'herbe, et complémentés avec des céréales produites sur la ferme !
@@ -32,6 +32,16 @@
           <p>En acceptant les <strong>Conditions Générales de Vente</strong>, vous acceptez de payer la différence selon le poids réel du colis livré. En cas de refus de votre part le colis ne sera pas délivré et l'acompte payé ne sera pas rétribué.</p>
       </div>
     </div>
+      <div class="edit">
+        <% if current_user.admin %>
+          <%= link_to product_path(@product), method: :delete, data: { confirm: "Êtes-vous sûr ?" } do %>
+            <i class="fas fa-times" style="color: black"></i>
+          <% end %>
+          <%= link_to edit_product_path(@product) do %>
+            <i class="far fa-edit" style="color: black;"></i>
+          <% end %>
+        <% end%>
+      </div>
   </div>
 </div>
 

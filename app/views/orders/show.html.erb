@@ -1,14 +1,67 @@
-<div class="container">
-  <h3>Votre commande du <%#= @order.created_at %></h3>
+<%= render 'shared/navbar_colored' %>
+<div class="container" style="min-height: 80vh;">
+  <% if current_user.admin %>
+    <h3 style="margin-top: 100px;" class="text-center">Commande du <%= @order.created_at.strftime("%d %b. %Y") %></h3>
 
-  <p>User_id :<%= @order.user_id %></p>
-  <p><%= @order.created_at.strftime("%d %b. %Y") %></p>
+    <% @order_items.each do |item| %>
+    <% product = Product.find(item.product_id) %>
+    <div class="col-10 offset-1 cart-grid">
+      <div class="cart-product d-flex align-items-center">
+        <div class="cart-product-img"><%= image_tag(product.show_image_url, height: '64', width: '96') %></div>
+        <div class="cart-product-name">
+          <p><%= product.name %><br>
+        </div>
+        <div class="cart-product-price">
+          <p class="text-center"><%= product.price %>€</p>
+        </div>
+        <div class="cart-product-qty d-flex justify-content-center">
+          <p class="text-center"><%= item.quantity %></p>
+        </div>
+        <div class="cart-product-total">
+          <p class="text-right"><%= product.price * item.quantity.to_i %>€</p>
+        </div>
+      </div>
+      </div>
+      <% end %>
+      <div class="order-info">
+        <p class="text-center">Prix total: <strong><%= @order.amount_cents %>€</strong></p>
+        <p class="text-center">Statut: </p>
+        <p class="text-center">Client: <strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
+        <p class="text-center">Adresse de livraison: <strong><%= @user.street_number %> <%= @user.street_name %>, <%= @user.postal_code %>, <%= @user.city %>, <%= @user.country %>.</strong></p>
+        <p class="text-center">Envoyer une estimation de la date de livraison cette adresse: <strong><%= @user.email %></strong></p>
+        <p class="text-center"><%= link_to 'Retour à la boutique', products_path, class: "cart-btn-ctn" %></p>
+        <p class="text-center"><%= link_to 'Retour aux commandes', orders_path %></p>
+      </div>
+  <% else %>
+  <h3 style="margin-top: 100px;" class="text-center">Votre commande du <%= @order.created_at.strftime("%d %b. %Y") %></h3>
 
-  <p>Prix :<%= @order.amount_cents %></p>
-  <p>Produits :<% @order_items.each do |item| %></p>
-    <p><%= item.name %></p>
-  <% end %>
-
-  Acompte déjà payé :<%#= @order.amount_cents %> €
-  Reste à payer à la reception : €
+  <% @order_items.each do |item| %>
+  <% product = Product.find(item.product_id) %>
+  <div class="col-10 offset-1 cart-grid">
+    <div class="cart-product d-flex align-items-center">
+      <div class="cart-product-img"><%= image_tag(product.show_image_url, height: '64', width: '96') %></div>
+      <div class="cart-product-name">
+        <p><%= product.name %><br>
+      </div>
+      <div class="cart-product-price">
+        <p class="text-center"><%= product.price %>€</p>
+      </div>
+      <div class="cart-product-qty d-flex justify-content-center">
+        <p class="text-center"><%= item.quantity %></p>
+      </div>
+      <div class="cart-product-total">
+        <p class="text-right"><%= product.price * item.quantity.to_i %>€</p>
+      </div>
+    </div>
+    </div>
+    <% end %>
+    <div class="order-info">
+      <p class="text-center">Prix total: <strong><%= @order.amount_cents %>€</strong></p>
+      <p class="text-center">Adresse de livraison: <strong><%= @user.street_number %> <%= @user.street_name %>, <%= @user.postal_code %>, <%= @user.city %>, <%= @user.country %>.</strong></p>
+      <p class="text-center">La date de livraison ainsi que d'autres informations utiles au bon déroulement de votre commande vous seront transmis rapidement par e-mail à cette adresse: <strong><%= @user.email %></strong></p>
+      <p class="text-center"><%= link_to 'Retour à la boutique', products_path, class: "cart-btn-ctn" %></p>
+      <p class="text-center"><%= link_to 'Retour aux commandes', orders_path %></p>
+    </div>
+    <% end %>
 </div>
+
