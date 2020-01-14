@@ -22,8 +22,8 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: 1,
       }],
-      success_url: "http://localhost:3000/checkout/#{order.id}",
-      cancel_url: 'http://localhost:3000/products',
+      success_url: "http://localhost:3000/orders/#{order.id}",
+      cancel_url: 'http://localhost:3000/products'
     )
     order.update(checkout_session_id: session.id)
     REDIS.del cart
@@ -37,6 +37,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @user = User.find(@order.user_id)
     @order_items = OrderItem.where(order_id: @order.id)
+    @items = []
+    @order_items.each do |item|
+      @items << Product.find(item.product_id)
+    end
   end
 end

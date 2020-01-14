@@ -1,29 +1,36 @@
 <%= render 'shared/navbar_colored' %>
-<div class="container">
-  <div class="orders col-6" >
-    <h4 style="margin-top:100px;">Mes commandes:</h4>
-    <% if current_user.admin %>
-        <div class="all-orders d-flex justify-content-left">
+<div class="container" style="min-height: 90vh;">
+  <div class="d-flex justify-content-around">
+    <div class="orders col-5" >
+      <h4 class="text-center" style="margin-top:100px;">Mes commandes:</h4>
+      <% if current_user.admin %>
+          <div class="all-orders d-flex justify-content-left">
+            <ul>
+              <% @all_orders.reverse.each do |order| %>
+                <li><p><%= link_to "Commande #{order.id}", order_path(order) %></p></li>
+              <% end %>
+            </ul>
+  <!--         <div class="orders-date"> -->
+            <ul>
+              <% @all_orders.reverse.each do |order| %>
+                <li><p><%= order.created_at.strftime("%d %b. %Y") %></p></li>
+              <% end %>
+            </ul>
+          </div>
+          <!-- </div> -->
+      <% else %>
+        <% @orders.each do |order| %>
           <ul>
-            <% @all_orders.reverse.each do |order| %>
-              <li><p><%= link_to "Commande #{order.id}", order_path(order) %></p></li>
-            <% end %>
+            <li><p class="text-center"><%= link_to order.created_at.strftime("%d %b. %Y"), order_path(order) %></p></li>
           </ul>
-<!--         <div class="orders-date"> -->
-          <ul>
-            <% @all_orders.reverse.each do |order| %>
-              <li><p><%= order.created_at.strftime("%d %b. %Y") %></p></li>
-            <% end %>
-          </ul>
-        </div>
-        <!-- </div> -->
-    <% else %>
-      <% @orders.each do |order| %>
-        <ul>
-          <li><%= link_to order.created_at, order_path(order) %></li>
-        </ul>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div class="account col-5">
+      <h4 class="text-center" style="margin-top: 100px;">Mon compte:</h4>
+      <p class="text-center">L'adresse de livraison fournie lors de votre inscription servira d'adresse de livraison pour vos commandes, vous pouvez la modifier à tout moment ici:</p>
+      <p class="text-center"><%= link_to "Modifier", edit_user_registration_path(current_user), class: "cart-btn-ctn" %></p>
+    </div>
   </div>
 </div>
 

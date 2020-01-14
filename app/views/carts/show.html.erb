@@ -23,7 +23,7 @@
     </div>
   <% end %>
 </div>
-<div class="cart-total text-right col-10 offset-1">
+<div class="cart-total text-right col-10 offset-1" style="min-height: 75vh;">
   <p><strong>Total:</strong> <%= @cart_total %>€</p>
   <p><%= link_to 'CONTINUER MES ACHATS', products_path, class: 'cart-btn-ctn' %></p>
   <% if @cart_products_with_qty.size >= 1 %>
@@ -33,9 +33,7 @@
   <% else %>
   <% end %>
   <p class="mt-4">Veuillez prendre connaissance de la <strong>zone de livraison</strong></p>
-  <p>En cliquant sur "Procéder au paiement" vous acceptez <strong>les conditions générales de vente</strong> et reconnaissez avoir pris connaissance de ne payer qu'un acompte. Le solde sera à payer à la livraison du colis en fonction du poids exact livré.
-
-</p>
+  <p>En cliquant sur "Procéder au paiement" vous acceptez <strong>les conditions générales de vente</strong> et reconnaissez avoir pris connaissance de ne payer qu'un acompte. Le solde sera à payer à la livraison du colis en fonction du poids exact livré.</p>
 </div>
 
 

@@ -51,23 +51,24 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  // border: 1px solid rgba(0,0,0,0.2);
-  border: none;
+  border: 1px solid rgba(0,0,0,0.2);
+  // border: none;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // box-shadow: 5px 10px 135px -20px rgba(0,0,0,0.3);
   text-decoration: none;
-  border:0!important;
+  // border:0!important;
   padding: 15px;
 
   a {
     color: white !important;
     text-decoration: none;
     border: none;
-    border:0!important;
+    // border:0!important;
   }
 
   a:hover, a:visited, a:link, a:active {
     text-decoration: none;
-    border:0!important;
+    // border:0!important;
   }
 
   :hover {

@@ -11,16 +11,18 @@ const stripe = Stripe('pk_test_pWFCbIFHRFsjcdrkgpjQYLq200G6vlRXfx');
 //   // error, display the localized error message to your customer
 //   // using `result.error.message`.
 // });
-
+const homeBanner = document.querySelector('.home_banner')
 const navbar = document.querySelector('.navbar');
 const title = document.querySelector('.title')
-if (navbar) {
+const tabs = document.querySelector('.tabs')
+if (homeBanner) {
   window.onscroll = function () {
       "use strict";
       if (document.documentElement.scrollTop >= 900 ) {
           console.log('if')
           navbar.classList.add("navbar-colored");
           title.innerHTML = "FERME DE <span>BEAU</span> PRINTEMPS";
+          tabs.innerHTML = "<a href=" + "/products" + ">Nos Produits</a><a href=" + "/products" + ">Notre Elevage</a><a href=" + "/products" + ">Zone de Livraison</a>";
           navbar.classList.remove("navbar-lewagon");
       }
       else {
