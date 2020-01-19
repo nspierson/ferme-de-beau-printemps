@@ -84,3 +84,10 @@
     opacity: 0.7;
     transition: opacity 0.4s ease-out;
 }
+
+.btn-zone {
+  input {
+    width: 40px;
+    border-radius: 10px;
+  }
+}

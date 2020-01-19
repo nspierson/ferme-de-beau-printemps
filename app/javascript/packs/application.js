@@ -1,16 +1,6 @@
 import "bootstrap";
 const stripe = Stripe('pk_test_pWFCbIFHRFsjcdrkgpjQYLq200G6vlRXfx');
 
-// stripe.redirectToCheckout({
-//   // Make the id field from the Checkout Session creation API response
-//   // available to this file, so you can provide it as parameter here
-//   // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
-//   sessionId: '{{CHECKOUT_SESSION_ID}}'
-// }).then(function (result) {
-//   // If `redirectToCheckout` fails due to a browser or network
-//   // error, display the localized error message to your customer
-//   // using `result.error.message`.
-// });
 const homeBanner = document.querySelector('.home_banner')
 const navbar = document.querySelector('.navbar');
 const title = document.querySelector('.title')
@@ -30,7 +20,43 @@ if (homeBanner) {
           navbar.classList.add("navbar-lewagon");
           navbar.classList.remove("navbar-colored");
           title.innerHTML = "";
+          tabs.innerHTML = "";
       }
   };
 }
+
+
+
+
+const bob = document.querySelector('#bob')
+const btn = document.querySelector('#btn')
+bob.addEventListener('input', (event) => {
+  if (event.data >= 1) {
+    btn.href = btn.href.slice(0, -1) + event.data
+    console.log(btn.href)
+  } else {
+
+  };
+});
+
+bob.addEventListener('click',(event) => {
+  if (bob.value >= 1) {
+    btn.href = btn.href.slice(0, -1) + bob.value
+    console.log(btn.href)
+  };
+});
+
+const modal = document.querySelector('#modal')
+console.log(modal)
+btn.addEventListener('click', (event) => {
+  modal.modal('toggle')
+})
+
+const productPrice = document.querySelector('#productPrice');
+const testModal = document.querySelector('.qtyAdded');
+const totalPrice = document.querySelector('.qtyTotal');
+btn.addEventListener('click', (event) => {
+  testModal.innerText = bob.value
+  totalPrice.innerText = Number.parseInt(bob.value,10) * Number.parseInt(productPrice.dataset.price, 10) + '€';
+})
 
