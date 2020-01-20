@@ -25,17 +25,14 @@
   <div class="d-flex justify-content-center">
     <div class="product_moment">
       <div class="d-flex justify-content-center">
-        <h4>[NOUVEAU !] RAVIOLES DE LA FERME AU BOEUF & LEGUMES 250GR</h4>
+        <h4>[EN CE MOMENT] <%= @pod.name.upcase %></h4>
       </div>
       <div class="image d-flex">
         <div>
-          <%= image_tag('raviolesbt.png', height: 310, width: 290) %>
+          <%= image_tag(@pod.show_image_url, height: 310, width: 290) %>
         </div>
         <div>
-        <p>Quatre minutes de cuisson et le repas est servi !
-            Féculents, protéines, légumes... Accompagnées d'une petite salade, ces ravioles constitueront un excellent repas rapide, sain et qui conserve toutes les qualités d'un produit artisanal fabriqué par votre producteur paysan !</p>
-            <p>Sauce à la crème, sauce béchamel, sauce tomate, bouillon de légume, marier les avec ce qui vous plaira !
-            Pour une touche gourmande, saupoudrez de parmesan et agrémentez d'un filet d'huile d'olive !</p>
+        <p><%= @pod.description %>
             <p style="opacity: 0.7;"><em>BŒUF de la Ferme & Légumes : Pâtes : Farine de blé tendre & blé dur, Œufs Farce : Bœuf (origine : animal né et élevé sur la ferme), Poireaux, Persil, Ail, Huile d’Olive, Sel, Poivre.</em></p>
             <p>Livrées congelées à cuire congelées 4 min à l’eau bouillante.
         </p>

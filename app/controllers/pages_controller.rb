@@ -12,6 +12,10 @@ class PagesController < ApplicationController
     @products_ids.each do |id|
       @most_sold_products << Product.find(id)
     end
+    if Product.where(pod: true).size >= 1
+      @pod = Product.where(pod: true).first
+    end
+
   end
 
   def checkout

@@ -33,6 +33,23 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def product_of_the_day
+    @all_pod = Product.where(pod: true)
+    if @all_pod.size >= 1
+      @pod = Product.where(pod: true).first
+      @pod.pod = false
+      @pod.save
+    end
+    @product = Product.find(params[:product_id])
+    @product.pod = true
+    @product.save
+    respond_to do |format|
+      format.html { redirect_to product_path(@product) }
+      format.js
+    end
+    # redirect_to product_path(@product)
+  end
+
   private
 
   def product_params

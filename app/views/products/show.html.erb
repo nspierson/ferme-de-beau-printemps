@@ -10,7 +10,7 @@
       <%= image_tag(@product.show_image_url, height: 350, width: 530) %>
     </div>
     <div class="product-description">
-      <h1><%= @product.name %></h1>
+      <h1 id="product-name"><%= @product.name %></h1>
       <div class="d-flex align-items-center justify-content-between btn-zone">
         <h4 id="productPrice" style="opacity: 0.7;" data-price="<%= @product.price %>">Acompte: <%= @product.price %>€</h4>
         <input type="number" id="bob" name="quantity" min="1" max="9" value="1">
@@ -32,6 +32,8 @@
           Garantis sans maïs, soja ni OGM.</p>
           <p>En acceptant les <strong>Conditions Générales de Vente</strong>, vous acceptez de payer la différence selon le poids réel du colis livré. En cas de refus de votre part le colis ne sera pas délivré et l'acompte payé ne sera pas rétribué.</p>
       </div>
+      <%= link_to 'POD', product_productod_path(@product), remote: true %>
+      <p id="test"></p>
     </div>
       <div class="edit">
         <% if current_user.admin %>
