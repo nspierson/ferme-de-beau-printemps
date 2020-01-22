@@ -40,7 +40,7 @@ lepreferepotaufeu = Product.new(name: "Colis \"Le Préféré\" 10kg Viande de Bo
 lepreferepotaufeu.save
 viandeveaubcp = Product.new(name: "Colis 10kg Viande de Veau AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/viandedeveau.png", show_image_url:"viandedeveau.png", stock: 5550, price_cents: 5000, final_price: 210)
 viandeveaubcp.save
-colisdecouverte = Product.new(name: "Colis Découverte 2,5kg spécial Steak / Steak Hachés AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 5550, price_cents: 2000, final_price: 52.5, ppk: )
+colisdecouverte = Product.new(name: "Colis Découverte 2,5kg spécial Steak / Steak Hachés AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 5550, price_cents: 2000, final_price: 52.5)
 colisdecouverte.save
 cotedeboeuf = Product.new(name: "Côte de Boeuf AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 5550, price_cents: 1000, final_price: 39)
 cotedeboeuf.save
