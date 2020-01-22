@@ -21,9 +21,9 @@ steak.save
 potaufeu = Product.new(name: "2,5kg spécial Pot-au-Feu AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 900, image_url:"assets/potaufeu.jpg", show_image_url:"potaufeu.jpg", stock: 150, price_cents: 500, final_price: 33.7, ppk: 5)
 potaufeu.save
 roulades = Product.new(name: "4 Roulades AB 10€", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/roulades.jpg", show_image_url:"roulades.jpg", stock: 5550, price_cents: 1000, final_price: 10)
-, ppk: roulades.save
+roulades.save
 steackhaches= Product.new(name: "40 Steaks Hachés Surgelés AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakhache.png", show_image_url:"steakhache.png", stock: 5550, price_cents: 7500, final_price: 75)
-, ppk: steackhaches.save
+steackhaches.save
 viandedeboeuf = Product.new(name: "5kg Viande de Boeuf AB - Variante Pot Au Feu", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/potaufeu.jpg", show_image_url:"potaufeu.jpg", stock: 5550, price_cents: 5000, final_price: 100)
 viandedeboeuf.save
 viandedeboeufhache = Product.new(name: "5kg Viande de Boeuf AB - Variante Haché", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 5550, price_cents: 5000, final_price: 100)
@@ -31,9 +31,9 @@ viandedeboeufhache.save
 viandedeveau = Product.new(name: "5kg Viande de Veau AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/viandedeveau.png", show_image_url:"viandedeveau.png", stock: 5550, price_cents: 5000, final_price: 125)
 viandedeveau.save
 boncadeau = Product.new(name: "Bon Cadeau - Agriculture Biologique", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 1, price_cents: 1, final_price: 1)
-b, ppk: oncadeau.save
+boncadeau.save
 bourguignon = Product.new(name: "Bourguignon AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/bourguignon.png", show_image_url:"bourguignon.png", stock: 5550, price_cents: 500, final_price: 10)
-, ppk: bourguignon.save
+bourguignon.save
 leprefere = Product.new(name: "Colis \"Le Préféré\" 10kg Viande de Boeuf AB Variante Haché", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 5550, price_cents: 5000, final_price: 160)
 leprefere.save
 lepreferepotaufeu = Product.new(name: "Colis \"Le Préféré\" 10kg Viande de Boeuf AB Variante Pot Au Feu", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/potaufeu.jpg", show_image_url:"potaufeu.jpg",  stock: 500, price_cents: 5000, final_price: 160)
@@ -43,7 +43,7 @@ viandeveaubcp.save
 colisdecouverte = Product.new(name: "Colis Découverte 2,5kg spécial Steak / Steak Hachés AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 5550, price_cents: 2000, final_price: 52.5, ppk: )
 colisdecouverte.save
 cotedeboeuf = Product.new(name: "Côte de Boeuf AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 5550, price_cents: 1000, final_price: 39)
-, ppk: cotedeboeuf.save
+cotedeboeuf.save
 
 # ORDERS
 puts "-------------------------- Création Orders --------------------------"
