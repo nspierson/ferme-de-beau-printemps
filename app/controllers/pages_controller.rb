@@ -25,4 +25,7 @@ class PagesController < ApplicationController
 
   def delivery_zone
   end
+
+  def contact
+  end
 end

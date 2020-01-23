@@ -25,7 +25,29 @@
 }
 
 .product-image {
-  height: 800px;
   display: flex;
-  align-items: center;
+  width: 550px;
+}
+
+.product-recipes {
+  a {
+    color: black;
+  }
+
+  h3 {
+    margin-bottom: 20px;
+  }
+}
+
+.recipe-ingredients {
+
+  li {
+    font-size: 12px;
+  }
+}
+
+.image-recipe {
+  width: 60%;
+  height: 100vh;
+  overflow: scroll;
 }

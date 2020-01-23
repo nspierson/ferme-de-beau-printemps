@@ -1,11 +1,11 @@
 // Specific CSS for your home-page
 .product_moment {
   height: auto;
-  width: 80vw;
-  border: 1px solid rgba(0, 0, 0, .1);
+  width: 100vw;
+  // border: 1px solid rgba(0, 0, 0, .1);
   margin-top: 15px;
   border-radius: 10px;
-  box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, .1);
+  // box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, .1);
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -13,10 +13,12 @@
 .image img {
   border-radius: 10px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .1);
-  margin-right: 10px;
+  margin-right: 60px;
 }
 
 .add_to_cart {
+  // justify-content: flex-end;
+  margin-bottom: 15px;
   a {
     border: 1px solid rgba(0, 0, 0, .1);
     background-color: #43E140;
@@ -24,6 +26,11 @@
     padding: 8px 25px;
     color: white;
     text-decoration: none;
+  }
+
+  input {
+    width: 40px;
+    border-radius: 10px;
   }
 }
 
@@ -74,5 +81,9 @@
   background-attachment: fixed;
   background-size: cover;
   height: 80vh;
+}
+
+.reviews {
+
 }
 

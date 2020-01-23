@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @recipes_names = @product.get_product_recipes(@product)
+    @recipes_link = @product.get_product_links(@product)
+    @recipes_content = @product.get_recipe(@product)
   end
 
   def new

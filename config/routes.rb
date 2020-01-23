@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get 'checkout/:order_id', to: 'pages#checkout', as: :checkout
   get 'delivery_zone', to: 'pages#delivery_zone', as: :delivery
+  get 'contact', to: 'pages#contact', as: :contact
 
   namespace :admin do
     root to: 'pages#home'

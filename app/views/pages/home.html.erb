@@ -24,21 +24,21 @@
   </div>
   <div class="d-flex justify-content-center">
     <div class="product_moment">
-      <div class="d-flex justify-content-center">
-        <h4>[EN CE MOMENT] <%= @pod.name.upcase %></h4>
-      </div>
       <div class="image d-flex">
         <div>
-          <%= image_tag(@pod.show_image_url, height: 310, width: 290) %>
+          <%= image_tag(@pod.show_image_url, height: 320, width: 500) %>
         </div>
         <div>
+          <h4>[EN CE MOMENT!] <%= @pod.name.upcase %></h4>
+          <div class="add_to_cart d-flex justify-content-between align-items-center">
+            <h4 style="opacity: 0.7">Acompte: <%= @pod.price %>€</h4>
+            <input type="number" id="boby" name="quantity" min="1" max="9" value="1">
+            <%= link_to 'AJOUTER AU PANIER', products_path, class: "btn btn-success" %>
+          </div>
         <p><%= @pod.description %>
             <p style="opacity: 0.7;"><em>BŒUF de la Ferme & Légumes : Pâtes : Farine de blé tendre & blé dur, Œufs Farce : Bœuf (origine : animal né et élevé sur la ferme), Poireaux, Persil, Ail, Huile d’Olive, Sel, Poivre.</em></p>
             <p>Livrées congelées à cuire congelées 4 min à l’eau bouillante.
         </p>
-          <div class="add_to_cart d-flex justify-content-right">
-            <%= link_to 'AJOUTER AU PANIER', products_path, class: "btn btn-success" %>
-          </div>
         </div>
       </div>
     </div>
@@ -66,9 +66,9 @@
 </div>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" data-interval="500" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1" data-interval="500"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2" data-interval="500"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" data-interval="50" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1" data-interval="50"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2" data-interval="50"></li>
   </ol>
   <div class="carousel-inner home-medium">
     <div class="carousel-item active first-photo">
@@ -101,19 +101,32 @@
 </div>
 <div class="container">
   <div class="about">
-    <h3 class="text-center">Un petit mot à propos de <span>NOUS</span></h3>
-    <div class="d-flex align-items-center">
-      <%= image_tag 'michel_home.png' %>
-      <div>
-      <h4 class="text-center">Michel Botzung, depuis tout petit il s'est passionné pour l'agriculture à la ferme familiale de Beau Printemps.</h4>
-      <p><i class="fas fa-quote-left"></i></p>
-      <p class="michel-descript text-center"><em>Je veux revenir à l’agriculture d’autrefois avec des éleveurs qui ont un débouché local pour leurs animaux qu’ils font grandir avec amour et convictions.</em></p>
-      <p class="text-right"><i class="fas fa-quote-right"></i></p>
+    <h3 class="text-center" style="margin: 60px 0;">ILS TÉMOIGNENT</h3>
+    <div class="d-flex justify-content-around reviews my-3">
+      <div style="width: 30%;">
+        <i class="fas fa-quote-left"></i>
+        <div class="d-flex justify-content-center">
+          <div style="width: 80%;">
+            <p style="font-size: 14px; opacity: 0.7;"><em>Une viande savoureuse, d'un éleveur que nous connaissons ! Très satisfaits !</em></p>
+          </div>
+        </div>
+        <p class="text-right"><i class="fas fa-quote-right"></i></p>
+        <p>- Pierre et Aude, consommateurs</p>
+      </div>
+      <div style="width: 30%;">
+        <i class="fas fa-quote-left"></i>
+        <div class="d-flex justify-content-center">
+          <div style="width: 80%;">
+            <p style="font-size: 14px; opacity: 0.7;">Acheter en direct au producteur, avec un service professionnel et transparent c’est juste top !</p>
+          </div>
+        </div>
+        <p class="text-right"><i class="fas fa-quote-right"></i></p>
+        <p>- Celine K. consommatrice</p>
+      </div>
 
       </div>
     </div>
   </div>
-
 </div>
 
 

@@ -6,8 +6,37 @@
 </div> -->
 <div class="container">
   <div style="margin-top: 100px;"class="product d-flex">
-    <div class="product-image">
-      <%= image_tag(@product.show_image_url, height: 350, width: 530) %>
+    <div class="image-recipe">
+      <div class="product-image">
+        <%= image_tag(@product.show_image_url, height: 350, width: 530) %>
+      </div>
+<%#= raise %>
+      <div class="product-recipes">
+        <h3 class="text-center">Nos idées recettes..</h3>
+        <div class="recipe-choice">
+          <% @recipes_names.take(3).each do |name| %>
+            <ul>
+              <li style="list-style: none;"><p class="text-center"><%= name %></p></li>
+            </ul>
+          <% end %>
+        </div>
+        <div class="recipe-ingredients">
+          <p><strong>Ingrédients:</strong></p>
+          <ul style="display: inline">
+            <% @recipes_link[0].children.each do |ingredient| %>
+              <li style="list-style: none;"><%= ingredient.text %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="recipe-content">
+        <p><strong>Préparation:</strong></p>
+        <ul>
+          <% @recipes_content[0].children.each do |recipe| %>
+            <li style="list-style: none;"><p class="text-left"><%= recipe.text %></p></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
     <div class="product-description">
       <h1 id="product-name"><%= @product.name %></h1>
@@ -20,9 +49,7 @@
       <div class="description">
         <p>Acompte de <%= @product.price %>€ à la commande<br>21€/kg soit 52,5€ au total</p>
         <p><strong>Votre colis contient :</strong></p>
-        <p> 1,75KG de steak haché de boeuf race Limousine en Agriculture Biologique.<br>
-            0,75 kg de steak de boeuf race Limousine en Agriculture Biologique
-            Viande savoureuse et maturée minimum 10 jours. Particulièrement tendre.</p>
+        <p> <em><%= @product.description %></em></p>
         <p><strong>Conditions de vente & Livraison :</strong></p>
           <p><strong>Acompte de 20€ & Frais de ports de 1,90€</strong> à régler <strong>en</strong> ligne lors de la commande (le solde sera à régler lors de la livraison selon le poids exact du colis +/- 5%
           Pour toute question appelez Michel au <strong>06 58 96 38 05</strong> !

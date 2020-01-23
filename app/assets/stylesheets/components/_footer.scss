@@ -2,10 +2,11 @@
   background: #F4F4F4;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  margin-top: 100px;
 }
 .footer-links {
   display: flex;
@@ -24,4 +25,19 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.site-links {
+  flex-direction: column;
+  margin: 15px;
+
+  a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.5 ease;
+  }
+
+  a:hover {
+    color: #43E140;
+  }
 }

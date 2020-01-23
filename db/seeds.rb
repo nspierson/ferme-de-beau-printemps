@@ -14,9 +14,9 @@ admin.save
 
 # PRODUCTS
 puts "-------------------------- Création Products --------------------------"
-filet = Product.new(name: "2 Steak de Filet de Boeuf AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 750, image_url:"assets/fdb.png", show_image_url:"fdb.png", stock: 50, price_cents: 1000, final_price: 14.2, ppk: 45, pod: true)
+filet = Product.new(name: "2 Steak de Filet de Boeuf AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 750, image_url:"assets/fdb.png", show_image_url:"fdb.png", stock: 50, price_cents: 1000, final_price: 14.2, ppk: 45, pod: true, scrap: "filet-de-boeuf")
 filet.save
-steak = Product.new(name: "2 Steaks AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 40 ,price_cents: 1000, final_price: 10.5, ppk: 25)
+steak = Product.new(name: "2 Steaks AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 40 ,price_cents: 1000, final_price: 10.5, ppk: 25, scrap: "steak")
 steak.save
 potaufeu = Product.new(name: "2,5kg spécial Pot-au-Feu AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 900, image_url:"assets/potaufeu.jpg", show_image_url:"potaufeu.jpg", stock: 150, price_cents: 500, final_price: 33.7, ppk: 5)
 potaufeu.save
