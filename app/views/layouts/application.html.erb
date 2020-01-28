@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
-
-    <%= render 'shared/flashes' %>
+    <div>
+      <%#= render 'shared/flashes' %>
+    </div>
     <%= yield %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>

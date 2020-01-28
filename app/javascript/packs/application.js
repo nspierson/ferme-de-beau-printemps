@@ -11,7 +11,7 @@ if (homeBanner) {
       if (document.documentElement.scrollTop >= 900 ) {
           console.log('if')
           navbar.classList.add("navbar-colored");
-          title.innerHTML = "FERME DE <span>BEAU</span> PRINTEMPS";
+          title.innerHTML = "FERME DE BEAU PRINTEMPS";
           tabs.innerHTML = "<a href=" + "/products" + ">Nos Produits</a><a href=" + "/products" + ">Notre Elevage</a><a href=" + "/delivery_zone" + ">Zone de Livraison</a>";
           navbar.classList.remove("navbar-lewagon");
       }

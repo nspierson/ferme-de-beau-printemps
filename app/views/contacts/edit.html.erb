@@ -1,0 +1,14 @@
+<%= render 'shared/navbar_colored' %>
+<div style="margin-top: 100px; min-height: 70vh;" class="container">
+  <h2 class="text-center" style="margin-top:100px;">Modifier les infos de contact</h2>
+  <div class="form-inputs col-6 offset-3">
+    <%= simple_form_for @contact do |f| %>
+    <%= f.input :email, label: "Mail :" %>
+    <%= f.input :phone, label: "Téléphone :" %>
+    <%= f.input :address, label: "Adresse :" %>
+  </div>
+  <div class="form-actions">
+    <p class="text-center"><%= f.button :submit, "MODIFIER", class: "cart-btn" %></p>
+  </div>
+  <% end %>
+</div>

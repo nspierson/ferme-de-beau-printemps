@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @contact = Contact.all.first
     products_id_with_qtys = OrderItem.group(:product_id).sum(:quantity)
     products_qtys = OrderItem.group(:product_id).sum(:quantity).values.max(3)
     @products_ids = []
@@ -27,5 +28,6 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @contact = Contact.all.first
   end
 end

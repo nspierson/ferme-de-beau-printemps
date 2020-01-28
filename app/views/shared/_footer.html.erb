@@ -3,11 +3,11 @@
     <div class="d-flex">
       <div class="d-flex site-links">
         <%= link_to "Nos Produits", products_path %>
-        <%= link_to "Contact", products_path %>
-        <%= link_to "Condition de vente", products_path %>
+        <%= link_to "Contact", contact_info_path %>
+        <%= link_to "Conditions de vente", products_path %>
       </div>
       <div class="d-flex site-links">
-        <%= link_to "Zone de livraison", products_path %>
+        <%= link_to "Zone de livraison", delivery_path %>
         <%= link_to "Notre élevage", products_path %>
         <%= link_to "Nos Produits", products_path %>
       </div>
@@ -17,7 +17,14 @@
       <a href="#"><i class="fab fa-facebook-messenger"></i></a>
     </div>
   </div>
-  <div class="footer-copyright">
-    © 2020, Ferme de Beau Printemps
+  <div>
+    <div class="test">
+      <p>Rejoignez notre Mailing List:</p>
+      <!-- <input type="text" id="bobmail" name="mailing-list" value="<%#= current_user.email %>"> -->
+    </div>
+    <div class="footer-copyright">
+      © 2020, Ferme de Beau Printemps
+    </div>
+
   </div>
 </div>

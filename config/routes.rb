@@ -18,9 +18,11 @@ Rails.application.routes.draw do
     resources :payments, only: [:new]
   end
 
+  resources :contacts, only: [:new, :update, :edit, :show], as: :contact
+
   get 'checkout/:order_id', to: 'pages#checkout', as: :checkout
   get 'delivery_zone', to: 'pages#delivery_zone', as: :delivery
-  get 'contact', to: 'pages#contact', as: :contact
+  get 'contact', to: 'pages#contact', as: :contact_info
 
   namespace :admin do
     root to: 'pages#home'

@@ -49,7 +49,7 @@
       <div class="description">
         <p>Acompte de <%= @product.price %>€ à la commande<br>21€/kg soit 52,5€ au total</p>
         <p><strong>Votre colis contient :</strong></p>
-        <p> <em><%= @product.description %></em></p>
+        <p> <em><%= sanitize @product.description %></em></p>
         <p><strong>Conditions de vente & Livraison :</strong></p>
           <p><strong>Acompte de 20€ & Frais de ports de 1,90€</strong> à régler <strong>en</strong> ligne lors de la commande (le solde sera à régler lors de la livraison selon le poids exact du colis +/- 5%
           Pour toute question appelez Michel au <strong>06 58 96 38 05</strong> !

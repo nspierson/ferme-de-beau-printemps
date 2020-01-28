@@ -1,0 +1,17 @@
+<%= render 'shared/navbar_colored' %>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+<div class="container">
+  <h3 style="margin: 100px 0;" class="text-center">Contact:</h3>
+    <p class="text-left">Pour toutes questions, Michel se fait une joie de vous répondre au numéro suivant :</p>
+    <p class="text-left"><strong><%= @contact.phone %></strong></p>
+    <p>Vous pouvez également nous joindre à l'adresse suivante : <strong><%= @contact.email %></strong></p>
+    <p>Ou même via l'application "Messenger" en cliquant sur l'icône bleue en bas à droite de votre écran !</p>
+    <p>Michel organise également des visites privés à la ferme de Beau Printemps à Petit-Réderching pour les petits et grands, il suffit de prendre rendez-vous ! </p>
+    <p>Adresse:</p>
+    <p><%= sanitize @contact.address %></p>
+    <p class="text-center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.028210105369!2d7.29913813498556!3d49.04454522662006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47942e9ae387cb91%3A0xbd46e3eb753511d8!2sFerme%20de%20Beau%20Printemps!5e0!3m2!1sfr!2sfr!4v1579792284491!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></p>
+</div>
