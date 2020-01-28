@@ -33,7 +33,7 @@
             <%= link_to "Nos produits", "#", class: "dropdown-item" %>
             <% if current_user.admin %>
               <%= link_to "Nouveau produit", new_product_path, class: "dropdown-item" %>
-              <%= link_to "Modifier contacts", edit_contact_path(Contact.first), class: "dropdown-item" %>
+              <%#= link_to "Modifier contacts", edit_contact_path(Contact.first), class: "dropdown-item" %>
               <%= link_to "Nos produits", "#", class: "dropdown-item" %>
             <% end %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

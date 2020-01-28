@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "-------------------------- Lancement de la seed --------------------------"
+puts "-------------------------- Creation des contacts --------------------------"
+contact = Contact.new(email: "contact@tiroiraterroirs.com", address: "EURL DE BEAU PRINTEMPS, <br>24 rue des Marguerites, <br>57410, Petit-Rederching")
+contact.save
 # USERS
 puts "-------------------------- Création Users --------------------------"
 admin = User.new(first_name: "admin", admin: true, email: "admin@admin.com", password:"123456")
