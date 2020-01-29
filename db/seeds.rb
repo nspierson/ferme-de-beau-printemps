@@ -8,7 +8,7 @@
 
 puts "-------------------------- Lancement de la seed --------------------------"
 puts "-------------------------- Creation des contacts --------------------------"
-contact = Contact.new(email: "contact@tiroiraterroirs.com", address: "EURL DE BEAU PRINTEMPS, <br>24 rue des Marguerites, <br>57410, Petit-Rederching")
+contact = Contact.new(email: "contact@tiroiraterroirs.com", address: "EURL DE BEAU PRINTEMPS, <br>24 rue des Marguerites, <br>57410, Petit-Rederching", phone: "03.87.98.98.98")
 contact.save
 # USERS
 puts "-------------------------- Création Users --------------------------"
