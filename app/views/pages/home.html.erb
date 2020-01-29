@@ -24,20 +24,20 @@
   </div>
   <div class="d-flex justify-content-center">
     <div class="product_moment">
-      <div class="image d-flex">
-        <div>
+      <div class="image">
+        <div class="d-flex justify-content-center">
           <%= image_tag(@pod.show_image_url, height: 320, width: 500) %>
         </div>
-        <div>
+        <div class="product-card-title">
           <h4>[EN CE MOMENT!] <%= @pod.name.upcase %></h4>
           <div class="add_to_cart d-flex justify-content-between align-items-center">
             <h4 style="opacity: 0.7">Acompte: <%= @pod.price %>€</h4>
-            <input type="number" id="boby" name="quantity" min="1" max="9" value="1">
-            <%= link_to 'AJOUTER AU PANIER', products_path, class: "cart-btn" %>
+            <input type="number" id="bob" name="quantity" min="1" max="9" value="1">
+            <%= link_to 'AJOUTER AU PANIER', "/cart/add/#{@pod.id}.1", class: "cart-btn", method: :put, id: "btn", 'data-toggle' => "modal", 'data-target' => "#myModal" %>
           </div>
-        <p><%= @pod.description %>
-            <p style="opacity: 0.7;"><em>BŒUF de la Ferme & Légumes : Pâtes : Farine de blé tendre & blé dur, Œufs Farce : Bœuf (origine : animal né et élevé sur la ferme), Poireaux, Persil, Ail, Huile d’Olive, Sel, Poivre.</em></p>
-            <p>Livrées congelées à cuire congelées 4 min à l’eau bouillante.
+          <p><%= @pod.description %>
+          <p style="opacity: 0.7;"><em>BŒUF de la Ferme & Légumes : Pâtes : Farine de blé tendre & blé dur, Œufs Farce : Bœuf (origine : animal né et élevé sur la ferme), Poireaux, Persil, Ail, Huile d’Olive, Sel, Poivre.</em></p>
+          <p>Livrées congelées à cuire congelées 4 min à l’eau bouillante.
         </p>
         </div>
       </div>
@@ -102,8 +102,8 @@
 <div class="container">
   <div class="about">
     <h3 class="text-center" style="margin: 60px 0;">ILS TÉMOIGNENT</h3>
-    <div class="d-flex justify-content-around reviews my-3">
-      <div style="width: 30%;">
+    <div class="justify-content-around reviews my-3">
+      <div class="first-review">
         <i class="fas fa-quote-left"></i>
         <div class="d-flex justify-content-center">
           <div style="width: 80%;">
@@ -113,17 +113,34 @@
         <p class="text-right"><i class="fas fa-quote-right"></i></p>
         <p>- Pierre et Aude, consommateurs</p>
       </div>
-      <div style="width: 30%;">
+      <div class="second-review">
         <i class="fas fa-quote-left"></i>
         <div class="d-flex justify-content-center">
           <div style="width: 80%;">
-            <p style="font-size: 19px; opacity: 0.7;">Acheter en direct au producteur, avec un service professionnel et transparent c’est juste top !</p>
+            <p style="font-size: 19px; opacity: 0.7;"><em>Acheter en direct au producteur, avec un service professionnel et transparent c’est juste top !</em></p>
           </div>
         </div>
         <p class="text-right"><i class="fas fa-quote-right"></i></p>
         <p>- Celine K. consommatrice</p>
       </div>
 
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" id="myModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <p class="text-center">Ce produit a bien été ajouté à votre panier: </p>
+        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-around align-items-center product-added">
+          <p class="text-center modalTest"><%= image_tag(@pod.show_image_url, height: '64', width: '96') %></p><p><%= @pod.name %></p><p><%= @pod.price %>€</p><p class="qtyAdded"></p><p class="qtyTotal"></p>
+        </div>
+
+        </div>
+        <div class="d-flex justify-content-around">
+          <p><%= link_to "CONTINUER MES ACHATS", products_path, class: "cart-btn" %></p>
+          <p><%= link_to "VOIR MON PANIER", cart_path, class: "cart-btn-ctn" %></p>
+        </div>
       </div>
     </div>
   </div>

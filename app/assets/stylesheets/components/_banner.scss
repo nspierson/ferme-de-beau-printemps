@@ -54,3 +54,22 @@
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+@media(max-width: 500px) {
+  .home_banner {
+
+    height: 100vh;
+    padding: 150px 0;
+    h1 {
+      font-size: 35px;
+    }
+
+    h5 {
+      font-size: 25px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}

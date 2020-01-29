@@ -7,11 +7,14 @@ class PagesController < ApplicationController
     products_qtys = OrderItem.group(:product_id).sum(:quantity).values.max(3)
     @products_ids = []
     products_qtys.each do |value|
-      @products_ids << products_id_with_qtys.key(value)
+        @products_ids << products_id_with_qtys.key(value)
     end
     @most_sold_products = []
     @products_ids.each do |id|
-      @most_sold_products << Product.find(id)
+      if @most_sold_products.include? Product.find(id)
+      else
+        @most_sold_products << Product.find(id)
+      end
     end
     if Product.where(pod: true).size >= 1
       @pod = Product.where(pod: true).first

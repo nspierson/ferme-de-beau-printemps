@@ -8,42 +8,17 @@
   <div style="margin-top: 100px;"class="product d-flex">
     <div class="image-recipe">
       <div class="product-image">
-        <%= image_tag(@product.show_image_url, height: 350, width: 530) %>
+        <%= image_tag(@product.show_image_url, height: 320, width: 530) %>
       </div>
 <%#= raise %>
-      <div class="product-recipes">
-        <h3 class="text-center">Nos idées recettes..</h3>
-        <div class="recipe-choice">
-          <% @recipes_names.take(3).each do |name| %>
-            <ul>
-              <li style="list-style: none;"><p class="text-center"><%= name %></p></li>
-            </ul>
-          <% end %>
-        </div>
-        <div class="recipe-ingredients">
-          <p><strong>Ingrédients:</strong></p>
-          <ul style="display: inline">
-            <% @recipes_link[0].children.each do |ingredient| %>
-              <li style="list-style: none;"><%= ingredient.text %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class="recipe-content">
-        <p><strong>Préparation:</strong></p>
-        <ul>
-          <% @recipes_content[0].children.each do |recipe| %>
-            <li style="list-style: none;"><p class="text-left"><%= recipe.text %></p></li>
-          <% end %>
-        </ul>
-      </div>
+<!--  -->
     </div>
     <div class="product-description">
       <h1 id="product-name"><%= @product.name %></h1>
-      <div class="d-flex align-items-center justify-content-between btn-zone">
+      <div class="d-flex align-items-center justify-content-between add_to_cart">
         <h4 id="productPrice" style="opacity: 0.7;" data-price="<%= @product.price %>">Acompte: <%= @product.price %>€</h4>
         <input type="number" id="bob" name="quantity" min="1" max="9" value="1">
-        <p><%= link_to 'AJOUTER AU PANIER', "/cart/add/#{@product.id}.1", method: :put, id: "btn", 'data-toggle' => "modal", 'data-target' => "#myModal" %></p>
+        <%= link_to 'AJOUTER AU PANIER', "/cart/add/#{@product.id}.1", class: "cart-btn", method: :put, id: "btn", 'data-toggle' => "modal", 'data-target' => "#myModal" %>
       </div>
       <%#= raise %>
       <div class="description">
@@ -59,18 +34,27 @@
           Garantis sans maïs, soja ni OGM.</p>
           <p>En acceptant les <strong>Conditions Générales de Vente</strong>, vous acceptez de payer la différence selon le poids réel du colis livré. En cas de refus de votre part le colis ne sera pas délivré et l'acompte payé ne sera pas rétribué.</p>
       </div>
-      <%= link_to 'POD', product_productod_path(@product), remote: true %>
-      <p id="test"></p>
     </div>
       <div class="edit">
         <% if current_user.admin %>
-          <%= link_to product_path(@product), method: :delete, data: { confirm: "Êtes-vous sûr ?" } do %>
-            <i class="fas fa-times" style="color: black"></i>
-          <% end %>
-          <%= link_to edit_product_path(@product) do %>
-            <i class="far fa-edit" style="color: black;"></i>
-          <% end %>
-        <% end%>
+          <ul>
+            <%= link_to product_path(@product), method: :delete, data: { confirm: "Êtes-vous sûr ?" } do %>
+              <li><i class="fas fa-times" style="color: black"></i></li>
+            <% end %>
+            <%= link_to edit_product_path(@product) do %>
+              <li><i class="far fa-edit" style="color: black;"></i></li>
+            <% end %>
+            <% if @product.pod == true %>
+              <%= link_to product_productod_path(@product), remote: true do %>
+                <li><i class="fas fa-crown" style="color: #43E140;"></i></li>
+              <% end %>
+            <% else %>
+              <%= link_to product_productod_path(@product), remote: true do %>
+                <li><i id="podCrown" class="fas fa-crown" style="color: black;"></i></li>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
   </div>
   <div class="ok"></div>
