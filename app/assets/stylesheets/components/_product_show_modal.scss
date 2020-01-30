@@ -7,10 +7,22 @@
   width: 80%;
 }
 
+.modal-btn {
+  justify-content: space-around !important;
+}
+
 
 @media(max-width: 500px) {
   .product-added {
-    a {
+    p {
+      font-size: 10px;
+    }
+  }
+
+  .modal-btn {
+    flex-direction: column;
+    align-items: center;
+    p {
       font-size: 10px;
     }
   }

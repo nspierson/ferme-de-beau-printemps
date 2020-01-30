@@ -23,7 +23,7 @@
     </div>
   <% end %>
 </div>
-<div class="cart-total text-right col-10 offset-1" style="min-height: 75vh;">
+<div class="cart-total text-right col-10 offset-1">
   <p><strong>Total:</strong> <%= @cart_total %>€</p>
   <p><%= link_to 'CONTINUER MES ACHATS', products_path, class: 'cart-btn-ctn' %></p>
   <% if @cart_products_with_qty.size >= 1 %>
