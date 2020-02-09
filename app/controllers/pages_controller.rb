@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :contact]
 
   def home
     @contact = Contact.all.first
@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     products_qtys = OrderItem.group(:product_id).sum(:quantity).values.max(3)
     @products_ids = []
     products_qtys.each do |value|
-        @products_ids << products_id_with_qtys.key(value)
+      @products_ids << products_id_with_qtys.key(value)
     end
     @most_sold_products = []
     @products_ids.each do |id|
@@ -19,7 +19,6 @@ class PagesController < ApplicationController
     if Product.where(pod: true).size >= 1
       @pod = Product.where(pod: true).first
     end
-
   end
 
   def checkout
@@ -32,5 +31,11 @@ class PagesController < ApplicationController
 
   def contact
     @contact = Contact.all.first
+  end
+
+  def dashboard
+    @orders = Order.all
+    @products = Product.all
+    @categories = Category.all
   end
 end

@@ -36,24 +36,26 @@
       </div>
     </div>
       <div class="edit">
-        <% if current_user.admin %>
-          <ul>
-            <%= link_to product_path(@product), method: :delete, data: { confirm: "Êtes-vous sûr ?" } do %>
-              <li><i class="fas fa-times" style="color: black"></i></li>
-            <% end %>
-            <%= link_to edit_product_path(@product) do %>
-              <li><i class="far fa-edit" style="color: black;"></i></li>
-            <% end %>
-            <% if @product.pod == true %>
-              <%= link_to product_productod_path(@product), remote: true do %>
-                <li><i class="fas fa-crown" style="color: #43E140;"></i></li>
+        <% if user_signed_in? %>
+          <% if current_user.admin %>
+            <ul>
+              <%= link_to product_path(@product), method: :delete, data: { confirm: "Êtes-vous sûr ?" } do %>
+                <li><i class="fas fa-times" style="color: black"></i></li>
               <% end %>
-            <% else %>
-              <%= link_to product_productod_path(@product), remote: true do %>
-                <li><i id="podCrown" class="fas fa-crown" style="color: black;"></i></li>
+              <%= link_to edit_product_path(@product) do %>
+                <li><i class="far fa-edit" style="color: black;"></i></li>
               <% end %>
-            <% end %>
-          </ul>
+              <% if @product.pod == true %>
+                <%= link_to product_productod_path(@product), remote: true do %>
+                  <li><i class="fas fa-crown" style="color: #43E140;"></i></li>
+                <% end %>
+              <% else %>
+                <%= link_to product_productod_path(@product), remote: true do %>
+                  <li><i id="podCrown" class="fas fa-crown" style="color: black;"></i></li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% end %>
         <% end %>
       </div>
   </div>

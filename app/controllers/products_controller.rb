@@ -1,22 +1,28 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @products = Product.all
   end
 
   def show
     @product = Product.find(params[:id])
-    @recipes_names = @product.get_product_recipes(@product)
-    @recipes_link = @product.get_product_links(@product)
-    @recipes_content = @product.get_recipe(@product)
+    # @recipes_names = @product.get_product_recipes(@product)
+    # @recipes_link = @product.get_product_links(@product)
+    # @recipes_content = @product.get_recipe(@product)
   end
 
   def new
     @product = Product.new
+    @categories = Category.all
+    @product_category = ProductCategory.new
   end
 
   def create
     @product = Product.new(product_params)
-    @product.save
+    if @product.save
+      @prod_cat = ProductCategory.new(product_id: @product.id, category_id: params[:product][:categories])
+      @prod_cat.save
+    end
     redirect_to product_path(@product)
   end
 
@@ -34,6 +40,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
+  end
+
+  def display_category
+    @categories = Category.all
+    # @products =
   end
 
   def product_of_the_day

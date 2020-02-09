@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     get 'productod', to: 'products#product_of_the_day'
   end
-  resources :categories, only: [:show]
+  resources :categories, only: [:create, :new, :index, :show]
   resource  :cart, only: [:show] do
     put 'add/:product_id', to: 'carts#add', as: :add_to
     put 'remove/:product_id', to: 'carts#remove', as: :remove_from

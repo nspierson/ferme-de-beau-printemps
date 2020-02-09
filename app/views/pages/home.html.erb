@@ -6,34 +6,22 @@
   <p class="text-center"><%= link_to 'DÉCOUVRIR NOS PRODUITS', products_path, class: "btn btn-success" %></p>
 </div>
 <div class="container">
-  <div class="qualities">
-    <div class="d-flex justify-content-around">
-      <div>
-        <p class="text-center"><%= image_tag 'clock.png' %></p>
-        <p><strong>Livraison Rapide</strong></p>
-      </div>
-      <div>
-        <p class="text-center"><%= image_tag 'premium.png' %></p>
-        <p><strong>Produits de qualité</strong></p>
-      </div>
-      <div>
-        <p class="text-center"><%= image_tag 'eco.png' %>
-        <p><strong>Bio Certifié</strong></p>
-      </div>
-    </div>
-  </div>
   <div class="d-flex justify-content-center">
     <div class="product_moment">
+          <h4>[EN CE MOMENT!] <%= @pod.name.upcase %></h4>
       <div class="image">
         <div class="d-flex justify-content-center">
           <%= image_tag(@pod.show_image_url, height: 320, width: 500) %>
         </div>
         <div class="product-card-title">
-          <h4>[EN CE MOMENT!] <%= @pod.name.upcase %></h4>
           <div class="add_to_cart d-flex justify-content-between align-items-center">
             <h4 style="opacity: 0.7">Acompte: <%= @pod.price %>€</h4>
             <input type="number" id="bob" name="quantity" min="1" max="9" value="1">
-            <%= link_to 'AJOUTER AU PANIER', "/cart/add/#{@pod.id}.1", class: "cart-btn", method: :put, id: "btn", 'data-toggle' => "modal", 'data-target' => "#myModal" %>
+            <% if user_signed_in?  %>
+              <%= link_to 'AJOUTER AU PANIER', "/cart/add/#{@pod.id}.1", class: "cart-btn", method: :put, id: "btn", 'data-toggle' => "modal", 'data-target' => "#myModal" %>
+            <% else %>
+              <%= link_to 'AJOUTER AU PANIER', new_user_session_path, class: "cart-btn" %>
+            <% end %>
           </div>
           <p><%= @pod.description %>
           <p style="opacity: 0.7;"><em>BŒUF de la Ferme & Légumes : Pâtes : Farine de blé tendre & blé dur, Œufs Farce : Bœuf (origine : animal né et élevé sur la ferme), Poireaux, Persil, Ail, Huile d’Olive, Sel, Poivre.</em></p>

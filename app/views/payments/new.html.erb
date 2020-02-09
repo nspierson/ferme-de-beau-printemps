@@ -1,20 +1,38 @@
-<div class="container">
-  <div class="row py-4">
-    <!-- <div class="col-md-3">DANS CETTE DIV METTRE PHOTO PRODUIT</div> -->
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong>produtcs</strong> for <strong><%= humanized_money_with_symbol @order.amount_cents %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+<%= render 'shared/navbar_colored' %>
+  <div class="container">
+    <h2 class="text-center cart-title">Votre Commande: (<%= pluralize(@order.order_items.size, 'Article') %> )</h2>
+    <div class="col-10 offset-1 cart-grid">
+    <% @order.order_items.each do |item| %>
+      <div class="cart-product d-flex align-items-center">
+        <div class="cart-product-img"><%= image_tag(Product.find(item.id).show_image_url, height: '64', width: '96') %></div>
+        <div class="cart-product-name">
+          <p><%= item.name %><br>
+        </div>
+        <div class="cart-product-price">
+          <!-- <p class="text-center"><%= Product.find(item.id).price_cents %>€</p> -->
+        </div>
+        <div class="cart-product-qty d-flex justify-content-center">
+          <p class="text-center"><%= item.quantity %></p>
+        </div>
+        <div class="cart-product-total">
+          <p class="text-right"><%= item.price_for_one %>€</p>
+        </div>
+      </div>
+    <% end %>
+      <div class="d-flex justify-content-center">
+          <button id="pay" class="cart-btn">Valider</button>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script>
-    </div>
+        </script>
+
+      </div>
   </div>
-</div>
+    <!-- <div class="col-md-3">DANS CETTE DIV METTRE PHOTO PRODUIT</div> -->
+

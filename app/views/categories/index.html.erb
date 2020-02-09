@@ -1,6 +1,6 @@
 <%= render 'shared/navbar_colored' %>
 <div style="margin-top: 100px; min-height: 80vh;" class="container">
-  <p style="margin-top: 15px;"><strong><%=  %> <%= pluralize(@category.product_categories.size, 'Produit') %> dans la catégorie <%= @category.name %> actuellement :</strong></p>
+  <p style="margin-top: 15px;"><strong><%= @products.size %> Produits dans notre boutique actuellement :</strong></p>
   <div class="btn-group dropright" style="margin: 20px 0;">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Catégories
@@ -16,7 +16,7 @@
     <% @products.each do |product| %>
       <%= link_to product_path(product) do %>
         <div data-aos="fade-up">
-        <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.show_image_url %>);">
+        <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.image_url %>);">
         <div class="product-name">
           <%= product.name %>
         </div>

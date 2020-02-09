@@ -1,0 +1,12 @@
+<%= render 'shared/navbar_colored' %>
+<div style="margin-top: 100px;" class="container">
+  <h2 class="text-center" style="margin-top:100px;">Création d'une nouvelle catégorie.</h2>
+  <div class="form-inputs col-6 offset-3">
+    <%= simple_form_for @category do |f| %>
+    <%= f.input :name, label: "Nom" %>
+</div>
+  <div class="form-actions">
+    <p class="text-center"><%= f.button :submit, "CRÉER", class: "cart-btn" %></p>
+  </div>
+  <% end %>
+</div>

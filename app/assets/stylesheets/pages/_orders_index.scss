@@ -6,6 +6,51 @@
   }
 }
 
+.all-orders {
+  display: flex;
+  justify-content: left;
+}
+
 .account {
   margin-top: 100px;
+}
+
+#account {
+  margin-top: 100px;
+}
+
+.test {
+
+}
+
+@media(max-width: 500px) {
+  .all-orders {
+    font-size: 10px;
+    width: 100vw;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+    ul {
+      padding: 0;
+      margin: 10px;
+    }
+  }
+
+  .orders {
+    width: 100vw;
+  }
+
+  .test {
+    flex-direction: column;
+  }
+
+  .account {
+    font-size: 10px;
+    margin-top: 0;
+  }
+
+  #account {
+    margin-top: 0;
+  }
 }

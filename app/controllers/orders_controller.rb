@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     @cart_products_with_qty.each do |array|
       product = array[0]
       qty = array[1]
-      order_items = OrderItem.new(user_id: @user.id, order_id: order.id, product_id: product.id, quantity: qty.to_i, price_for_one: product.price_cents, total_price: (product.price_cents * qty.to_i), name: product.name)
+      order_items = OrderItem.new(user_id: @user.id, order_id: order.id, product_id: product.id, quantity: qty.to_i, price_for_one: product.price, total_price: (product.price * qty.to_i), name: product.name)
       order_items.save
     end
     session = Stripe::Checkout::Session.create(
