@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def index
+    @products = Product.all
     @orders = Order.where(user_id: current_user.id)
     @all_orders = Order.all
   end

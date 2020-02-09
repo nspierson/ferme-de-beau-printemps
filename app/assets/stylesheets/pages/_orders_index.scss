@@ -6,6 +6,16 @@
   }
 }
 
+.products {
+  height: 50vh;
+  overflow: scroll;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
 .all-orders {
   display: flex;
   justify-content: left;

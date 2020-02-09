@@ -33,5 +33,44 @@
       <p class="text-center"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete%></p>
     </div>
   </div>
+  <% if current_user.admin %>
+    <div class="products">
+      <% @products.each do |product| %>
+
+        <div class="cart-product d-flex align-items-center">
+          <div class="cart-product-img"><%= image_tag(product.show_image_url, height: '64', width: '96') %></div>
+          <div class="cart-product-name">
+            <%= link_to product_path(product) do  %>
+              <p><%= product.name %></p>
+            <% end %>
+          </div>
+          <div class="cart-product-price">
+            <%= link_to product_path(product), method: :delete, data: { confirm: "Êtes-vous sûr ?" } do %>
+              <i class="fas fa-times" style="color: black"></i>
+            <% end %>
+             <%= link_to edit_product_path(product) do %>
+               <i class="far fa-edit" style="color: black;"></i>
+             <% end %>
+             <% if product.pod == true %>
+               <%= link_to product_productod_path(product), remote: true do %>
+                 <i class="fas fa-crown" style="color: #43E140;"></i>
+               <% end %>
+             <% else %>
+               <%= link_to product_productod_path(product), remote: true do %>
+                 <i id="podCrown" class="fas fa-crown" style="color: black;"></i>
+               <% end %>
+             <% end %>
+          </div>
+          <div class="cart-product-qty d-flex justify-content-center">
+
+          </div>
+          <div class="cart-product-total">
+            <p class="text-right"><%= product.price %>€</p>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  <% end %>
 </div>
 

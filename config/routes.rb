@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:create, :new, :index, :show]
   resource  :cart, only: [:show] do
     put 'add/:product_id', to: 'carts#add', as: :add_to
+    put 'add_one/:product_id', to: 'carts#addone', as: :add_one_to
     put 'remove/:product_id', to: 'carts#remove', as: :remove_from
     put 'remove_one/:product_id', to: 'carts#removeone', as: :remove_one
   end

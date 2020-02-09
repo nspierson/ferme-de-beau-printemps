@@ -49,6 +49,10 @@ input {
 }
 
 @media(max-width: 500px) {
+  .footer {
+    flex-direction: column;
+  }
+
   .footer-site-link {
     font-size: 10px;
   }

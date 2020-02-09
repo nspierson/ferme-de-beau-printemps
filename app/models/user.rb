@@ -9,6 +9,10 @@ class User < ApplicationRecord
     "cart#{id}"
   end
 
+  def add_one_to_cart(product_id)
+    REDIS.hincrby current_user_cart, product_id, 1
+  end
+
   def add_to_cart(product_id, qty)
       REDIS.hincrby current_user_cart, product_id, qty
   end

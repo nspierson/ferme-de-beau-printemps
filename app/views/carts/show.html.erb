@@ -8,14 +8,18 @@
     <div class="cart-product d-flex align-items-center">
       <div class="cart-product-img"><%= image_tag(product.show_image_url, height: '64', width: '96') %></div>
       <div class="cart-product-name">
-        <p><%= product.name %><br>
-        <%= link_to 'Remove', remove_from_cart_path(product), method: :put %></p>
+        <p>
+        <%= link_to remove_from_cart_path(product), method: :put do %>
+          <i class="fas fa-times" style="color: black"></i>
+        <% end %>
+        <%= product.name %>
+      </p>
       </div>
       <div class="cart-product-price">
         <p class="text-center"><%= product.price %>€</p>
       </div>
       <div class="cart-product-qty d-flex justify-content-center">
-        <p class="text-center"><%= link_to '+', add_to_cart_path(product, 1), method: :put %><%= qty %><%= link_to '-', remove_one_cart_path(product), method: :put %></p>
+        <p class="text-center"><%= link_to '+', add_one_to_cart_path(product), method: :put %><%= qty %><%= link_to '-', remove_one_cart_path(product), method: :put %></p>
       </div>
       <div class="cart-product-total">
         <p class="text-right"><%= product.price * qty.to_i %>€</p>

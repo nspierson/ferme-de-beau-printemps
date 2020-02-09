@@ -4,6 +4,11 @@ class CartsController < ApplicationController
     @cart_total = current_user.cart_total_price
   end
 
+  def addone
+    current_user.add_one_to_cart(params[:product_id])
+    redirect_to cart_path
+  end
+
   def add
     current_user.add_to_cart(params[:product_id], params[:format])
   end

@@ -4,8 +4,34 @@
   Nous livrons nos colis de viande dans une zone géographique s'étendant de Forbach à Strasbourg.<br>
   N'hésitez pas à appeler au 06 58 96 38 05 si vous souhaitez confirmation, ou envoyer un mail à contact@letiroiraterroirs.com.<br>
   D'autres livraisons peuvent être réalisées hors de ce cercle avec notre accord préalable à votre commande, possibilité de livrer jusqu'à Metz en fonction du volume commandé ! </p>
-  <p class="text-center"><iframe class="" id="map" style="margin-top: 30px;" src="https://www.google.com/maps/d/u/0/embed?mid=1HaoAPLVQzUfHxCxS5u8Vt112y8Rc9yRI" width="640" height="480"></iframe></p>
+<div id="mape"></div>
   <p style="margin-top: 100px;" class="text-center delivery">Toute commande passée par un client sans s'être assuré auprès de l'EARL de Beau Printemps de la possibilité de livraison hors de cette zone ne pourra être honorée, et l'acompte ne sera pas rétribué.</p>
+  <script>
+  // Initialize and add the map
+  function initMap() {
+    // The location of Uluru
+    var ferme = {lat: 49.04497, lng: 7.29926};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('mape'), {zoom: 8, center: ferme});
+    // The marker, positioned at ferme
+    var marker = new google.maps.Marker({position: ferme, map: map});
+    var cityCircle = new google.maps.Circle({
+          strokeColor: '#000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#43E140',
+          fillOpacity: 0.35,
+          map: map,
+          center: ferme,
+          radius: 50000
+        });
+  }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXhb0eo5cr1QU85Nia1nKUIlGGls-8yDw&callback=initMap">
+      </script>
+      <script> initMap() </script>
 </div>
 
 
