@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: 1,
       }],
-      success_url: order_path(order.id),
+      success_url: "http://localhost:3000/orders/#{order.id}",
       cancel_url: 'http://localhost:3000/products'
     )
     order.update(checkout_session_id: session.id)
