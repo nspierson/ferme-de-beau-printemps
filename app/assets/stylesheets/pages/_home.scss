@@ -10,6 +10,15 @@
   margin-bottom: 20px;
 }
 
+.product-card-title {
+
+}
+
+.prod-description {
+  height: 260px;
+  overflow: scroll;
+}
+
 .image img {
   border-radius: 10px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .1);
@@ -89,6 +98,11 @@
 
 .image {
   display: flex;
+}
+
+.messenger {
+  position: sticky;
+  z-index: -1;
 }
 
 @media(max-width: 800px) {

@@ -30,4 +30,6 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :categories, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

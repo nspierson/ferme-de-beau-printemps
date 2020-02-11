@@ -6,20 +6,20 @@
       <% if current_user.admin %>
           <div class="all-orders">
             <ul>
-              <% @all_orders.reverse.each do |order| %>
+              <% @all_orders.where(state: 'paid').reverse.each do |order| %>
                 <li><p><%= link_to "Commande #{order.id}", order_path(order) %></p></li>
               <% end %>
             </ul>
   <!--         <div class="orders-date"> -->
             <ul>
-              <% @all_orders.reverse.each do |order| %>
+              <% @all_orders.where(state: 'paid').reverse.each do |order| %>
                 <li><p><%= order.created_at.strftime("%d %b. %Y") %></p></li>
               <% end %>
             </ul>
           </div>
           <!-- </div> -->
       <% else %>
-        <% @orders.each do |order| %>
+        <% @orders.where(state: 'paid').each do |order| %>
           <ul>
             <li><p class="text-center"><%= link_to order.created_at.strftime("%d %b. %Y"), order_path(order) %></p></li>
           </ul>

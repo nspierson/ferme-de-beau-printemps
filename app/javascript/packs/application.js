@@ -12,7 +12,7 @@ if (homeBanner) {
           console.log('if')
           navbar.classList.add("navbar-colored");
           title.innerHTML = "FERME DE BEAU PRINTEMPS";
-          tabs.innerHTML = "<a href=" + "/products" + ">Nos Produits</a><a href=" + "/products" + ">Notre Elevage</a><a href=" + "/delivery_zone" + ">Zone de Livraison</a>";
+          tabs.innerHTML = "<a href=" + "/products" + ">Nos Produits</a><a href=" + "/delivery_zone" + ">Zone de Livraison</a>";
           navbar.classList.remove("navbar-lewagon");
       }
       else {

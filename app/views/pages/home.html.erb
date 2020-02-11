@@ -3,7 +3,7 @@
   <h1 class="text-center">FERME DE <span>BEAU</span> PRINTEMPS</h1>
   <h5 class="text-center">AGRICULTURE BIOLOGIQUE</h5>
   <p class="text-center">Direct de l'éleveur au consommateur</p>
-  <p class="text-center"><%= link_to 'DÉCOUVRIR NOS PRODUITS', products_path, class: "btn btn-success" %></p>
+  <p class="text-center"><%= link_to 'DÉCOUVRIR NOS PRODUITS', categories_path, class: "btn btn-success" %></p>
 </div>
 <div class="container">
   <div class="d-flex justify-content-center">
@@ -23,10 +23,24 @@
               <%= link_to 'AJOUTER AU PANIER', new_user_session_path, class: "cart-btn" %>
             <% end %>
           </div>
-          <p><%= @pod.description %>
-          <p style="opacity: 0.7;"><em>BŒUF de la Ferme & Légumes : Pâtes : Farine de blé tendre & blé dur, Œufs Farce : Bœuf (origine : animal né et élevé sur la ferme), Poireaux, Persil, Ail, Huile d’Olive, Sel, Poivre.</em></p>
-          <p>Livrées congelées à cuire congelées 4 min à l’eau bouillante.
-        </p>
+          <div class="prod-description">
+            <p><strong>Votre colis contient:</strong></p>
+            <p style="opacity: 0.7;"><%= sanitize @pod.description %></p>
+            <p><strong>Conditions de vente & Livraison :</strong><br>
+
+Acompte de 10€ & Frais de ports de 1,90€ à régler en ligne lors de la commande (le solde sera à régler lors de la livraison selon le poids exact du colis).<br>
+
+Pour toute question appelez Michel au <strong>06 58 96 38 05 !</strong><br>
+<br>
+<strong>Informations complementaires sur nos produits :</strong><br>
+
+Viande de race Limousine issue de la Ferme de Beau Printemps à Petit-Réderching, exploitée par la famille BOTZUNG en Agriculture Biologique.
+<br>
+Les animaux sont nourris essentiellement à l'herbe, et complémentés avec des céréales produites sur la ferme !
+
+<strong>Garantis sans maïs, soja ni OGM.</strong></p>
+
+          </div>
         </div>
       </div>
     </div>
