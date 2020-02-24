@@ -2,6 +2,8 @@ class CartsController < ApplicationController
   def show
     @cart_products_with_qty = current_user.get_cart_products_with_qty
     @cart_total = current_user.cart_total_price
+    @cart_total_with_fee = current_user.cart_total_price.to_i + current_user.get_delivery_fees.to_i
+    @delivery_fee = current_user.get_delivery_fees
   end
 
   def addone

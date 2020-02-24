@@ -4,12 +4,12 @@
     <div class="col-10 offset-1 cart-grid">
     <% @order.order_items.each do |item| %>
       <div class="cart-product d-flex align-items-center">
-        <div class="cart-product-img"><%= image_tag(Product.find(item.id).show_image_url, height: '64', width: '96') %></div>
+        <div class="cart-product-img"><%= image_tag(Product.find(item.product_id).show_image_url, height: '64', width: '96') %></div>
         <div class="cart-product-name">
           <p><%= item.name %><br>
         </div>
         <div class="cart-product-price">
-          <!-- <p class="text-center"><%= Product.find(item.id).price_cents %>€</p> -->
+          <!-- <p class="text-center"><%= Product.find(item.product_id).price_cents %>€</p> -->
         </div>
         <div class="cart-product-qty d-flex justify-content-center">
           <p class="text-center"><%= item.quantity %></p>

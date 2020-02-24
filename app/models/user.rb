@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def add_to_cart(product_id, qty)
-      REDIS.hincrby current_user_cart, product_id, qty
+    REDIS.hincrby current_user_cart, product_id, qty
   end
 
   def remove_from_cart(product_id)
@@ -30,6 +30,12 @@ class User < ApplicationRecord
     quantities.reduce(0) { |sum, qty| sum + qty.to_i }
   end
 
+  def get_delivery_fees
+    delivery_fees = get_cart_products.map { |product| product.delivery_fee }
+    delivery_fee = delivery_fees.max
+    return delivery_fee
+  end
+
   def cart_total_price
     get_cart_products_with_qty.map { |product, qty| product.price * qty.to_i }.reduce(:+)
   end
@@ -43,6 +49,15 @@ class User < ApplicationRecord
     end
     cart_products = Product.find(cart_ids)
     cart_products.zip(cart_qtys)
+  end
+
+  def get_cart_products
+    cart_ids = []
+    (REDIS.hgetall current_user_cart).map do |key, value|
+      cart_ids << key
+    end
+    cart_products = Product.find(cart_ids)
+    return cart_products
   end
 
   def purchase_cart_products

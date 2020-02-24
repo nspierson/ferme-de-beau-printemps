@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_094319) do
+ActiveRecord::Schema.define(version: 2020_02_18_092439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_094319) do
     t.float "final_price"
     t.float "ppk"
     t.string "scrap"
+    t.float "delivery_fee"
   end
 
   create_table "users", force: :cascade do |t|

@@ -13,6 +13,7 @@
           <i class="fas fa-times" style="color: black"></i>
         <% end %>
         <%= product.name %>
+        <%#= raise %>
       </p>
       </div>
       <div class="cart-product-price">
@@ -28,7 +29,9 @@
   <% end %>
 </div>
 <div class="cart-total text-right col-10 offset-1">
-  <p><strong>Total:</strong> <%= @cart_total %>€</p>
+  <p><strong>Produits:</strong> <%= @cart_total %>€</p>
+  <p><strong>Frais de Livraison:</strong> <%= @delivery_fee %>€</p>
+  <p><strong>Total:</strong> <%= @cart_total_with_fee %>€</p>
   <p><%= link_to 'CONTINUER MES ACHATS', products_path, class: 'cart-btn-ctn' %></p>
   <% if @cart_products_with_qty.size >= 1 %>
     <%= form_tag orders_path do %>
