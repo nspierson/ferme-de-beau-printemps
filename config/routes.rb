@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     put 'remove/:product_id', to: 'carts#remove', as: :remove_from
     put 'remove_one/:product_id', to: 'carts#removeone', as: :remove_one
   end
+  resources :recipes, only: [:new, :create, :edit, :update] do
+    get 'displayrecip', to: 'recipes#display_recip'
+  end
+
 
   resources :orders, only: [:index, :show, :create] do
     resources :payments, only: [:new]

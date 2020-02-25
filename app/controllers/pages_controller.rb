@@ -19,6 +19,9 @@ class PagesController < ApplicationController
     if Product.where(pod: true).size >= 1
       @pod = Product.where(pod: true).first
     end
+    if Recipe.where(display_recipe: true).size >= 1
+      @recipe = Recipe.where(display_recipe: true).first
+    end
   end
 
   def checkout
