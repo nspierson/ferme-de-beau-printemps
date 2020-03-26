@@ -9,8 +9,12 @@
     <%= f.input :categories, collection: @categories %>
     <%= f.input :stock, label: "Stock" %>
     <%= f.input :price_cents, label: "Prix(en cts)" %>
-    <%= f.input :image_url, label: "Image url" %>
-    <%= f.input :show_image_url, label: "Show image url" %>
+    <div class="upload-btn-wrapper">
+    <label>Photo</label>
+      <button class="cart-btn">Choisir une photo</button>
+      <%= f.input :photo, as: :file, label: false %>
+    </div>
+    <%= f.input :delivery_fee, label: "Frais de port(en €)" %>
 </div>
   <div class="form-actions">
     <p class="text-center"><%= f.button :submit, "CRÉER", class: "cart-btn" %></p>

@@ -8,7 +8,8 @@
   <div style="margin-top: 100px;"class="product d-flex">
     <div class="image-recipe">
       <div class="product-image">
-        <%= image_tag(@product.show_image_url, height: 320, width: 530) %>
+        <%#= image_tag(@product.show_image_url, height: 320, width: 530) %>
+        <%= cl_image_tag @product.photo.key, height: 320, width: 530, crop: :fill %>
       </div>
 <!--  -->
     </div>
