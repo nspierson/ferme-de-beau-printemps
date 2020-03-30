@@ -28,18 +28,10 @@
             <p style="opacity: 0.7;"><%= sanitize @pod.description %></p>
             <p><strong>Conditions de vente & Livraison :</strong><br>
 
-Acompte de 10€ & Frais de ports de 1,90€ à régler en ligne lors de la commande (le solde sera à régler lors de la livraison selon le poids exact du colis).<br>
+Acompte de <%= humanized_money @pod.price %>€ & Frais de ports de <%= humanized_money @pod.delivery_fee %>€ à régler en ligne lors de la commande (le solde sera à régler lors de la livraison selon le poids exact du colis).<br>
 
 Pour toute question appelez Michel au <strong>06 58 96 38 05 !</strong><br>
 <br>
-<strong>Informations complementaires sur nos produits :</strong><br>
-
-Viande de race Limousine issue de la Ferme de Beau Printemps à Petit-Réderching, exploitée par la famille BOTZUNG en Agriculture Biologique.
-<br>
-Les animaux sont nourris essentiellement à l'herbe, et complémentés avec des céréales produites sur la ferme !
-
-<strong>Garantis sans maïs, soja ni OGM.</strong></p>
-
           </div>
         </div>
       </div>
@@ -66,8 +58,8 @@ Les animaux sont nourris essentiellement à l'herbe, et complémentés avec des 
   </div>
   <p class="text-center mt-4"><%= link_to 'VOIR TOUT', products_path, class: "cart-btn-ctn" %></p>
   <div class="recipe">
-    <h4 class="text-center">RECETTE TITRE:</h4>
-    <h6 class="text-center"><%= @recipe.name %></h6>
+    <h4 class="text-center" style="margin-top: 40px;">SUGGESTION RECETTE:</h4>
+    <h4 class="text-center"><%= @recipe.name %></h4>
     <div class="recipe-img d-flex justify-content-center" >
       <%= cl_image_tag(@recipe.photo.key, crop: :fill) %>
     </div>
@@ -115,6 +107,7 @@ Les animaux sont nourris essentiellement à l'herbe, et complémentés avec des 
          <li><p class=""><%= step %></p></li>
         <% end %>
       </ul>
+      <p>Bon Appétit!</p>
     </div>
 
     </div>
