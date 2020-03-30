@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     put 'remove_one/:product_id', to: 'carts#removeone', as: :remove_one
   end
   resources :recipes, only: [:new, :create, :edit, :update] do
-    get 'displayrecip', to: 'recipes#display_recip'
+    get 'displayrecip', to: 'orders#display_recip'
   end
 
 

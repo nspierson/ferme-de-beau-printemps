@@ -1,6 +1,6 @@
 <%= render 'shared/navbar_colored' %>
 <div style="margin-top: 100px;" class="container">
-  <h2 class="text-center" style="margin-top:100px;">Modifier un produit.</h2>
+  <h2 class="text-center" style="margin-top:100px;">Créer une recette</h2>
   <div class="form-inputs col-6 offset-3">
     <%= simple_form_for @recipe do |f| %>
     <%= f.input :name, label: "Nom" %>
@@ -8,6 +8,11 @@
     <%= f.input :description, label: "Description ( \"\ \\ \" entre chaque étape )" %>
     <%= f.input :capacity, label: "Pour combien de personnes" %>
     <%= f.input :difficulty, label: "Difficulté" %>
+    <div class="upload-btn-wrapper">
+    <label>Photo</label>
+      <button class="cart-btn">Choisir une photo</button>
+      <%= f.input :photo, as: :file, label: false %>
+    </div>
     <%= f.input :prep_time, label: "Temps de préparation" %>
     <%= f.input :cook_time, label: "Temps de cuisson" %>
 </div>

@@ -1,6 +1,12 @@
 import "bootstrap";
 const stripe = Stripe('pk_test_pWFCbIFHRFsjcdrkgpjQYLq200G6vlRXfx');
 
+const test = document.querySelectorAll('#podCrownrr');
+console.log(test);
+test.forEach(item => item.addEventListener('click', (event) => {
+  item.style.color = "#43E140";
+}))
+
 const homeBanner = document.querySelector('.home_banner')
 const navbar = document.querySelector('.navbar');
 const title = document.querySelector('.title')
@@ -30,33 +36,43 @@ if (homeBanner) {
 
 const bob = document.querySelector('#bob')
 const btn = document.querySelector('#btn')
-bob.addEventListener('input', (event) => {
-  if (event.data >= 1) {
-    btn.href = btn.href.slice(0, -1) + event.data
-    console.log(btn.href)
-  } else {
+if (bob) {
+  bob.addEventListener('input', (event) => {
+    if (event.data >= 1) {
+      btn.href = btn.href.slice(0, -1) + event.data
+      console.log(btn.href)
+    } else {
 
-  };
-});
+    };
+  });
 
-bob.addEventListener('click',(event) => {
-  if (bob.value >= 1) {
-    btn.href = btn.href.slice(0, -1) + bob.value
-    console.log(btn.href)
-  };
-});
+  bob.addEventListener('click',(event) => {
+    if (bob.value >= 1) {
+      btn.href = btn.href.slice(0, -1) + bob.value
+      console.log(btn.href)
+    };
+  });
+
+}
 
 const modal = document.querySelector('#modal')
 console.log(modal)
-btn.addEventListener('click', (event) => {
-  modal.modal('toggle')
-})
+if (btn) {
+  btn.addEventListener('click', (event) => {
+    modal.modal('toggle')
+  })
+
+}
 
 const productPrice = document.querySelector('#productPrice');
 const testModal = document.querySelector('.qtyAdded');
 const totalPrice = document.querySelector('.qtyTotal');
-btn.addEventListener('click', (event) => {
-  testModal.innerText = bob.value
-  totalPrice.innerText = Number.parseInt(bob.value,10) * Number.parseInt(productPrice.dataset.price, 10) + '€';
-})
+if (btn) {
+  btn.addEventListener('click', (event) => {
+    testModal.innerText = bob.value
+    totalPrice.innerText = Number.parseInt(bob.value,10) * Number.parseInt(productPrice.dataset.price, 10) + '€';
+  })
+
+}
+
 

@@ -57,11 +57,11 @@
              <% end %>
              <% if product.pod == true %>
                <%= link_to product_productod_path(product), remote: true do %>
-                 <i class="fas fa-crown" style="color: #43E140;"></i>
+                 <i class="fas fa-crown displayed"></i>
                <% end %>
              <% else %>
                <%= link_to product_productod_path(product), remote: true do %>
-                 <i id="podCrown" class="fas fa-crown" style="color: black;"></i>
+                 <i id="podCrownrr" class="fas fa-crown" style="color: black;"></i>
                <% end %>
              <% end %>
           </div>
@@ -74,6 +74,23 @@
         </div>
 
       <% end %>
+    </div>
+    <div class="recipes">
+      <h4 class="text-center" style="margin-top: 30px;">Recettes:</h4>
+      <ul>
+      <% @recipes.each do |recipe| %>
+        <li><%= recipe.name %></li>
+        <% if recipe.display_recipe == true %>
+          <%= link_to recipe_displayrecip_path(recipe), remote: true do %>
+            <li><i id="podCrownrr" class="fas fa-crown displayedRecipe"></i></li>
+          <% end %>
+        <% else %>
+          <%= link_to recipe_displayrecip_path(recipe), remote: true do %>
+            <li><i id="podCrownrr" class="fas fa-crown"></i></li>
+          <% end %>
+        <% end %>
+      <% end %>
+      </ul>
     </div>
   <% end %>
 </div>

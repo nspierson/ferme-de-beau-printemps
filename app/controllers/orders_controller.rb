@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
     @products = Product.all
     @orders = Order.where(user_id: current_user.id)
     @all_orders = Order.all
+    @recipes = Recipe.all
   end
 
   def show
@@ -47,5 +48,22 @@ class OrdersController < ApplicationController
     @order_items.each do |item|
       @items << Product.find(item.product_id)
     end
+  end
+
+  def display_recip
+    @displayed_recipe = Recipe.where(display_recipe: true)
+    if @displayed_recipe.size >= 1
+      @displayed_recipe = Recipe.where(display_recipe: true).first
+      @displayed_recipe.display_recipe = false
+      @displayed_recipe.save
+    end
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe.display_recipe = true
+    @recipe.save
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+    # redirect_to product_path(@product)
   end
 end

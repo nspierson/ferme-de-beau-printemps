@@ -29,8 +29,19 @@
   margin-top: 100px;
 }
 
-.test {
+.recipes {
+  li {
+    list-style: none;
+  }
+  text-align: center;
+}
 
+.displayed {
+  color: #43E140;
+}
+
+.displayedRecipe {
+  color: #43E140;
 }
 
 @media(max-width: 500px) {
