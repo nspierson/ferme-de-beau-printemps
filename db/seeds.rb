@@ -90,7 +90,7 @@ bourguignon.save
 
 leprefere = Product.new(name: "Colis \"Le Préféré\" 10kg Viande de Boeuf AB Variante Haché", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakboeuf.png", show_image_url:"steakboeuf.png", stock: 5550, price_cents: 5000, final_price: 160)
 file = URI.open("https://res.cloudinary.com/du5gskfdu/image/upload/v1585220876/RK6o4zfc9g3KqikcZHCzTnhk.png")
-bourguignon.photo.attach(io: file, filename: "bourguignon.png", content_type: "image/png")
+leprefere.photo.attach(io: file, filename: "leprefere.png", content_type: "image/png")
 leprefere.save
 
 # -------------------------------------------------------------------
@@ -123,6 +123,10 @@ cotedeboeuf.save
 
 # -------------------------------------------------------------------
 
+# RECIPE
+puts "-------------------------- Création first recipe ------------------------"
+
+#recipe = Recipe.new(name)
 
 # ORDERS
 puts "-------------------------- Création Orders --------------------------"

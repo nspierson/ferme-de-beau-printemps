@@ -25,7 +25,11 @@
       <% @products.each do |product| %>
         <%= link_to product_path(product) do %>
           <div data-aos="fade-up">
-          <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.image_url %>);">
+            <% if product.photo.attached? %>
+              <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path product.photo.key %>);">
+            <% else %>
+              <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url();">
+            <% end %>
           <div class="product-name">
             <%= product.name %>
           </div>

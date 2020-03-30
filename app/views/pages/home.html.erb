@@ -11,7 +11,7 @@
           <h4>[EN CE MOMENT!] <%= @pod.name.upcase %></h4>
       <div class="image">
         <div class="d-flex justify-content-center">
-          <%= image_tag(@pod.show_image_url, height: 320, width: 500) %>
+          <%= cl_image_tag(@pod.photo.key, height: 320, width: 500) %>
         </div>
         <div class="product-card-title">
           <div class="add_to_cart d-flex justify-content-between align-items-center">
@@ -50,7 +50,7 @@ Les animaux sont nourris essentiellement à l'herbe, et complémentés avec des 
     <% @most_sold_products.each do |product| %>
       <%= link_to product_path(product) do %>
         <div data-aos="fade-up">
-        <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.image_url %>);">
+        <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path product.photo.key %>);">
         <div class="product-name">
           <%= product.name %>
         </div>
@@ -189,7 +189,7 @@ Les animaux sont nourris essentiellement à l'herbe, et complémentés avec des 
         <p class="text-center">Ce produit a bien été ajouté à votre panier: </p>
         <div class="d-flex justify-content-center">
         <div class="d-flex justify-content-around align-items-center product-added">
-          <p class="text-center modalTest"><%= image_tag(@pod.show_image_url, height: '64', width: '96') %></p><p><%= @pod.name %></p><p><%= @pod.price %>€</p><p class="qtyAdded"></p><p class="qtyTotal"></p>
+          <p class="text-center modalTest"><%= cl_image_tag(@pod.photo.key, height: '64', width: '96') %></p><p><%= @pod.name %></p><p><%= @pod.price %>€</p><p class="qtyAdded"></p><p class="qtyTotal"></p>
         </div>
 
         </div>

@@ -6,7 +6,7 @@
     <% product = array[0] %>
     <% qty = array[1] %>
     <div class="cart-product d-flex align-items-center">
-      <div class="cart-product-img"><%= image_tag(product.show_image_url, height: '64', width: '96') %></div>
+      <div class="cart-product-img"><%= cl_image_tag(product.photo.key, height: '64', width: '96') %></div>
       <div class="cart-product-name">
         <p>
         <%= link_to remove_from_cart_path(product), method: :put do %>
