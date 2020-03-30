@@ -49,7 +49,7 @@ roulades.save
 steakhaches= Product.new(name: "40 Steaks Hachés Surgelés AB", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ratione molestias provident id, porro nesciunt.", weight: 1750, image_url:"assets/steakhache.png", show_image_url:"steakhache.png", stock: 5550, price_cents: 7500, final_price: 75)
 file = URI.open("https://res.cloudinary.com/du5gskfdu/image/upload/v1585242117/Steak_hache_fxgae3.jpg")
 steakhaches.photo.attach(io: file, filename: "steakhaches.jpg", content_type: "image/jpg")
-steackhaches.save
+steakhaches.save
 
 # -------------------------------------------------------------------
 
