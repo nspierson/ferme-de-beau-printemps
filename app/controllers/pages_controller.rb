@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @contact = Contact.all.first
     products_id_with_qtys = OrderItem.group(:product_id).sum(:quantity)
-    products_qtys = OrderItem.group(:product_id).sum(:quantity).values.max(3)
+    products_qtys = OrderItem.group(:product_id).sum(:quantity).values.max(4)
     @products_ids = []
     products_qtys.each do |value|
       @products_ids << products_id_with_qtys.key(value)

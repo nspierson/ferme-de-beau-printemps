@@ -19,6 +19,11 @@
         </div>
       </div>
     <% end %>
+    <div class="text-right col-10 offset-1">
+      <p><strong>Produits:</strong> <%= @order.amount_cents %>€</p>
+      <p><strong>Frais de Livraison:</strong> <%= @delivery_fee %>€</p>
+      <p><strong>Total:</strong> <%= @order.amount_cents + @delivery_fee %>€</p>
+    </div>
       <div class="d-flex justify-content-center">
           <button id="pay" class="cart-btn">Valider</button>
         <script src="https://js.stripe.com/v3/"></script>

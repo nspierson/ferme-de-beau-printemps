@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @cart_products_with_qty.each do |array|
       product = array[0]
       qty = array[1]
-      order_items = OrderItem.new(user_id: @user.id, order_id: order.id, product_id: product.id, quantity: qty.to_i, price_for_one: product.price, total_price: (product.price * qty.to_i), name: product.name)
+      order_items = OrderItem.new(user_id: @user.id, order_id: order.id, product_id: product.id, quantity: qty.to_i, price_for_one: product.price, total_price: (product.price * qty.to_i), name: product.name, delivery_fee: product.delivery_fee)
       order_items.save
     end
     session = Stripe::Checkout::Session.create(
@@ -40,6 +40,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @delivery_fee = OrderItem.find(@order.order_item_ids).map { |prod| prod.delivery_fee }.max
     @user = User.find(@order.user_id)
     @order_items = OrderItem.where(order_id: @order.id)
     @items = []
