@@ -71,6 +71,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     @order.delivered = true
     @order.save
+    user = User.find(@order.user_id)
+    UserMailer.order_delivery(user).deliver_now
     redirect_to orders_path
   end
 end
