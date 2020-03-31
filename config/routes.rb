@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
 
   resources :orders, only: [:index, :show, :create] do
+    get 'markasdelivered', to: 'orders#mark_as_delivered'
     resources :payments, only: [:new]
   end
 

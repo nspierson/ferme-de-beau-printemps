@@ -13,7 +13,7 @@
   <!--         <div class="orders-date"> -->
             <ul>
               <% @all_orders.where(state: 'paid').reverse.each do |order| %>
-                <li><p><%= order.created_at.strftime("%d %b. %Y") %></p></li>
+                <li><p><%= order.created_at.strftime("%d %b. %Y") %> <%= link_to "...", order_markasdelivered_path(order) %></p></li>
               <% end %>
             </ul>
           </div>

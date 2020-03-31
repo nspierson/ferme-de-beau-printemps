@@ -66,4 +66,11 @@ class OrdersController < ApplicationController
     end
     # redirect_to product_path(@product)
   end
+
+  def mark_as_delivered
+    @order = Order.find(params[:order_id])
+    @order.delivered = true
+    @order.save
+    redirect_to orders_path
+  end
 end
