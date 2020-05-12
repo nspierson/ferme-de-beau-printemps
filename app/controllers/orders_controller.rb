@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
+  # skip_before_action :authenticate_user!, only: [:new, :create]
   def create
-    @user = current_user
+    @user = current_or_guest_user
     cart = @user.current_user_cart
     total_price = @user.cart_total_price
     delivery_fee = (@user.get_delivery_fees.to_i * 100)
@@ -16,6 +16,10 @@ class OrdersController < ApplicationController
       order_items.save
     end
     session = Stripe::Checkout::Session.create(
+      billing_address_collection: 'auto',
+      shipping_address_collection: {
+        allowed_countries: ['FR'],
+      },
       payment_method_types: ['card'],
       line_items: [{
         name: 'Votre Panier',
@@ -34,7 +38,7 @@ class OrdersController < ApplicationController
 
   def index
     @products = Product.all
-    @orders = Order.where(user_id: current_user.id)
+    @orders = Order.where(user_id: current_or_guest_user.id)
     @all_orders = Order.all
     @recipes = Recipe.all
   end

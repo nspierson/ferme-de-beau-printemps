@@ -22,6 +22,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary'
+gem 'warden'
+gem 'devise-guests'
 gem 'letter_opener', group: :development
 
 group :development do

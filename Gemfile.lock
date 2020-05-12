@@ -70,6 +70,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-guests (0.7.0)
+      devise
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
@@ -243,6 +245,7 @@ DEPENDENCIES
   bootstrap
   cloudinary
   devise
+  devise-guests
   dotenv-rails
   font-awesome-sass (~> 5.6.1)
   hiredis
@@ -264,6 +267,7 @@ DEPENDENCIES
   stripe
   stripe_event
   uglifier
+  warden
   web-console (>= 3.3.0)
   webpacker
 

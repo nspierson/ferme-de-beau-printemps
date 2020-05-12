@@ -3,7 +3,7 @@
   <div class="test d-flex justify-content-around">
     <div class="orders col-lg-5 col-12" >
       <h4 class="text-center" style="margin-top:100px;">Mes commandes:</h4>
-      <% if current_user.admin %>
+      <% if current_user && current_user.admin %>
           <div class="all-orders">
             <ul>
               <% @all_orders.where(state: 'paid').reverse.each do |order| %>
@@ -33,7 +33,7 @@
       <p class="text-center"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete%></p>
     </div>
   </div>
-  <% if current_user.admin %>
+  <% if current_user && current_user.admin %>
     <div class="products">
       <% @products.each do |product| %>
 

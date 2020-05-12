@@ -1,6 +1,6 @@
 <%= render 'shared/navbar_colored' %>
 <div class="container" style="min-height: 60vh;">
-  <% if current_user.admin %>
+  <% if current_user && current_user.admin %>
     <h3 style="margin-top: 100px;" class="text-center">Commande du <%= @order.created_at.strftime("%d %b. %Y") %></h3>
 
     <% @order_items.each do |item| %>
