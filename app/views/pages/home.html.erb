@@ -61,7 +61,7 @@ Pour toute question appelez Michel au <strong>06 58 96 38 05 !</strong><br>
     <h4 class="text-center" style="margin-top: 40px;">SUGGESTION RECETTE:</h4>
     <h4 class="text-center"><%= @recipe.name %></h4>
     <div class="recipe-img d-flex justify-content-center" >
-      <%= cl_image_tag(@recipe.photo.key, crop: :fill) %>
+      <div class="recipe-img--img" style="background-image: url(<%= cl_image_path @recipe.photo.key %>);"></div>
     </div>
     <div class="details d-flex align-items-center justify-content-center">
       <div class="d-flex flex-column justify-content-center">
@@ -153,7 +153,7 @@ Pour toute question appelez Michel au <strong>06 58 96 38 05 !</strong><br>
     <h4 class="text-center" style="margin: 60px 0;">ILS TÉMOIGNENT</h4>
     <div class="justify-content-around reviews my-3">
       <div class="first-review">
-        <i class="fas fa-quote-left"></i>
+        <p class="text-left"><i class="fas fa-quote-left"></i></p>
         <div class="d-flex justify-content-center">
           <div style="width: 80%;">
             <p style="font-size: 19px; opacity: 0.7;"><em>Une viande savoureuse, d'un éleveur que nous connaissons ! Très satisfaits !</em></p>
@@ -163,7 +163,7 @@ Pour toute question appelez Michel au <strong>06 58 96 38 05 !</strong><br>
         <p>- Pierre et Aude, consommateurs</p>
       </div>
       <div class="second-review">
-        <i class="fas fa-quote-left"></i>
+        <p class="text-left"><i class="fas fa-quote-left"></i></p>
         <div class="d-flex justify-content-center">
           <div style="width: 80%;">
             <p style="font-size: 19px; opacity: 0.7;"><em>Acheter en direct au producteur, avec un service professionnel et transparent c’est juste top !</em></p>
