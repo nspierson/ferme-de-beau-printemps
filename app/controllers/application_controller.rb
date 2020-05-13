@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def create_guest_user_if_needed
+    return if current_user
     if session[:user_id]
       u = User.find(session[:user_id])
     else
