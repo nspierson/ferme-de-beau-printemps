@@ -10,15 +10,16 @@
   </div>
   <div style="min-height: 80vh;" class="container">
     <p style="margin-top: 15px;"><strong><%= @products.size %> Produits dans notre boutique actuellement :</strong></p>
-    <div class="btn-group dropright" style="margin: 20px 0;">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="btn-group" style="margin: 20px 0;">
+      <button type="button" class="btn btn-success dropdown-toggle dropdownbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Catégories
       </button>
       <div class="dropdown-menu">
-        <%= link_to 'Tout', categories_path, class: "dropdown-item" %>
         <% @categories.each do |cat| %>
           <%= link_to cat.name, category_path(cat), class: "dropdown-item" %>
         <% end %>
+        <div class="dropdown-divider"></div>
+        <%= link_to 'Tout', categories_path, class: "dropdown-item" %>
       </div>
     </div>
     <div class="cards">

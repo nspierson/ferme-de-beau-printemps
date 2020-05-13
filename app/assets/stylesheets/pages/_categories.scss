@@ -15,3 +15,15 @@
 .categories-choice {
   width: auto;
 }
+
+.dropdownbtn {
+  background-color: #43E140;
+  border-color: #43E140;
+  color: white;
+}
+
+@media(max-width: 500px){
+  .categories-choice {
+    display: none;
+  }
+}

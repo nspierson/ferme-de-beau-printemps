@@ -77,6 +77,9 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    UserMailer.welcome(self).deliver_now
+    if self.email != "guest@example.com"
+      UserMailer.welcome(self).deliver_now
+    else
+    end
   end
 end
