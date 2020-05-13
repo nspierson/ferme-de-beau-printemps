@@ -1,4 +1,4 @@
-// Specific CSS for your home-page
+// TRENDING PRODUCT AREA
 .product_moment {
   height: auto;
   width: 100vw;
@@ -41,6 +41,8 @@
   margin-top: 15px;
 }
 
+// ABOUT AREA
+
 .about {
   span {
     color: #43E140;
@@ -56,6 +58,8 @@
   margin-left: 30px;
   font-weight: lighter;
 }
+
+// MIDDLE BANNER AREA
 
 .home-medium {
   img {
@@ -84,6 +88,8 @@
   height: 80vh;
 }
 
+// REVIEW AREA
+
 .reviews {
   display: flex;
 }
@@ -105,12 +111,36 @@
   z-index: -1;
 }
 
+// RECIPES AREA
+
 .recipe-img {
   img {
     border-radius: 10px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
 
   }
+}
+
+.preparation {
+  display: flex;
+}
+
+.ingredients {
+  p {
+    font-size: 12px;
+  }
+}
+
+.steps {
+  width: 60%;
+  display: flex;
+  -webkit-box-align: center !important;
+  align-items: center !important;
+  -webkit-box-pack: center !important;
+  justify-content: center !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  flex-direction: column !important;
 }
 
 @media(max-width: 800px) {
@@ -197,6 +227,40 @@
 
   .qualities {
     font-size: 10px;
+  }
+
+  // RECIPE AREA
+
+  .recipe-img {
+    img {
+      width: 100%;
+    }
+  }
+
+  .preparation {
+    display: block;
+  }
+
+  .ingredients {
+    p {
+      font-size: 9px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    ul {
+      padding: 0;
+    }
+  }
+
+  .steps {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+
+    ul {
+      padding: 0;
+    }
   }
 }
 

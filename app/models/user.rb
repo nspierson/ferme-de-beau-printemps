@@ -37,6 +37,12 @@ class User < ApplicationRecord
     return delivery_fee
   end
 
+  def get_total_weight
+    all_weights = get_cart_products.map { |product| product.weight }
+    total_weight = all_weights.map(&:to_i).reduce(0, :+)
+    return total_weight
+  end
+
   def cart_total_price
     get_cart_products_with_qty.map { |product, qty| product.price * qty.to_i }.reduce(:+)
   end

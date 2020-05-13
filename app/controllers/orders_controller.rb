@@ -4,7 +4,13 @@ class OrdersController < ApplicationController
     @user = current_or_guest_user
     cart = @user.current_user_cart
     total_price = @user.cart_total_price
-    delivery_fee = (@user.get_delivery_fees.to_i * 100)
+    # delivery_fee = (@user.get_delivery_fees.to_i * 100)
+    total_weight = @user.get_total_weight
+    if total_weight >= 10000
+      delivery_fee = 0
+    else
+      delivery_fee = 210
+    end
     total_price_in_e = (total_price.to_i * 100)
     @cart_products_with_qty = @user.get_cart_products_with_qty
     @cart_products = @user.get_cart_products

@@ -3,7 +3,11 @@ class CartsController < ApplicationController
     @cart_products_with_qty = current_or_guest_user.get_cart_products_with_qty
     @cart_total = current_or_guest_user.cart_total_price
     @cart_total_with_fee = current_or_guest_user.cart_total_price.to_i + current_or_guest_user.get_delivery_fees.to_i
-    @delivery_fee = current_or_guest_user.get_delivery_fees
+    if current_or_guest_user.get_total_weight >= 10000 || current_or_guest_user.get_total_weight == 0
+      @delivery_fee = 0
+    else
+      @delivery_fee = 2.10
+    end
   end
 
   def addone

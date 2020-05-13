@@ -39,7 +39,7 @@ Pour toute question appelez Michel au <strong>06 58 96 38 05 !</strong><br>
   </div>
   <h4 class="text-center">NOS MEILLEURES VENTES:</h4>
   <div class="cards" style="margin-top: 40px;">
-    <% @most_sold_products.first(4).each do |product| %>
+    <% @most_sold_products.first(3).each do |product| %>
       <%= link_to product_path(product) do %>
         <div data-aos="fade-up">
         <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path product.photo.key %>);">
@@ -93,15 +93,15 @@ Pour toute question appelez Michel au <strong>06 58 96 38 05 !</strong><br>
       </div>
     </div>
     <h5 class="text-center" style="margin: 20px 0;">Préparation</h5>
-    <div class="preparation d-flex">
+    <div class="preparation">
     <div class="ingredients">
       <ul style="list-style: none;">
         <% @recipe.ingredients.split(",").each do |ingredient| %>
-          <li><p style="font-size: 12px;"><%= ingredient %></p></li>
+          <li><p><%= ingredient %></p></li>
         <% end %>
       </ul>
     </div>
-    <div class="steps d-flex align-items-center justify-content-center flex-column" style="width: 60%;">
+    <div class="steps">
       <ul style="list-style: none;">
         <% @recipe.description.split("\\").each do |step| %>
          <li><p class=""><%= step %></p></li>
