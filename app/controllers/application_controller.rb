@@ -29,10 +29,13 @@ class ApplicationController < ActionController::Base
   end
 
   def create_guest_user_if_needed
-    return if session[:user_id]
-    u = User.new(:first_name => "guest", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com", :guest => true)
-    u.save!(:validate => false)
-    session[:user_id] = u.id
+    if session[:user_id]
+      u = User.find(session[:user_id])
+    else
+      u = User.new(:first_name => "guest", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com")
+      u.save!(:validate => false)
+      session[:user_id] = u.id
+    end
     u
   end
 
