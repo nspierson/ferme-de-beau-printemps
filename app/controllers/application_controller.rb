@@ -29,11 +29,20 @@ class ApplicationController < ActionController::Base
   end
 
   def create_guest_user_if_needed
-    return if session[:user_id]
+    # return if session[:user_id]
     u = User.new(:first_name => "guest", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com", :guest => true)
     u.save!(:validate => false)
     session[:user_id] = u.id
     u
+  end
+
+  def logging_in
+    # For example:
+    # guest_comments = guest_user.comments.all
+    # guest_comments.each do |comment|
+      # comment.user_id = current_user.id
+      # comment.save!
+    # end
   end
 
   protected
