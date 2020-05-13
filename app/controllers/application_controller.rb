@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def create_guest_user_if_needed
-    # return if session[:user_id]
+    return if session[:user_id]
     u = User.new(:first_name => "guest", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com", :guest => true)
     u.save!(:validate => false)
     session[:user_id] = u.id
@@ -37,12 +37,16 @@ class ApplicationController < ActionController::Base
   end
 
   def logging_in
-    # For example:
-    # guest_comments = guest_user.comments.all
-    # guest_comments.each do |comment|
-      # comment.user_id = current_user.id
-      # comment.save!
-    # end
+    guest_orders = guest_user.orders.all
+    guest_orders.each do |order|
+      order.user_id = current_user.id
+      order.save!
+    end
+    guest_order_items = OrderItem.where(user_id: guest_user.id)
+    guest_order_items.each do |orderItem|
+      orderItem.user_id = current_user.id
+      orderItem.save!
+    end
   end
 
   protected

@@ -39,7 +39,7 @@ Pour toute question appelez Michel au <strong>06 58 96 38 05 !</strong><br>
   </div>
   <h4 class="text-center">NOS MEILLEURES VENTES:</h4>
   <div class="cards" style="margin-top: 40px;">
-    <% @most_sold_products.first(3).each do |product| %>
+    <% @most_sold_products.first(4).each do |product| %>
       <%= link_to product_path(product) do %>
         <div data-aos="fade-up">
         <div class="card-category" style="text-decoration: none; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path product.photo.key %>);">
