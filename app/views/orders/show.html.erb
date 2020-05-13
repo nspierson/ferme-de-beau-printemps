@@ -27,9 +27,9 @@
         <p class="text-center">Frais de livraison: <strong><%= @delivery_fee %>€</strong></p>
         <p class="text-center">Prix total: <strong><%= @order.amount_cents + @delivery_fee %>€</strong></p>
         <p class="text-center">Statut: </p>
-        <p class="text-center">Client: <strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
-        <p class="text-center">Adresse de livraison: <strong><%= @user.street_number %> <%= @user.street_name %>, <%= @user.postal_code %>, <%= @user.city %>, <%= @user.country %>.</strong></p>
-        <p class="text-center">Envoyer une estimation de la date de livraison cette adresse: <strong><%= @user.email %></strong></p>
+        <p class="text-center">Client: <strong><%= @order.client_name %></strong></p>
+        <p class="text-center">Adresse de livraison: <strong><%= @order.street %>, <%= @order.postal_code %>, <%= @order.city %>, <%= @order.country %>.</strong></p>
+        <p class="text-center">Envoyer une estimation de la date de livraison cette adresse: <strong><%= @order.client_email %></strong></p>
         <p class="text-center"><%= link_to 'Retour à la boutique', products_path, class: "cart-btn-ctn" %></p>
         <p class="text-center"><%= link_to 'Retour aux commandes', orders_path %></p>
       </div>
