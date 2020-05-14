@@ -7,6 +7,16 @@ test.forEach(item => item.addEventListener('click', (event) => {
   item.style.color = "#43E140";
 }))
 
+
+const undelivered_order = document.querySelectorAll('.undelivered');
+undelivered_order.forEach(item => item.addEventListener('click', event => {
+  item.style.color = "#43E140";
+}))
+
+
+
+mark_delivered();
+
 const homeBanner = document.querySelector('.home_banner')
 const navbar = document.querySelector('.navbar');
 const title = document.querySelector('.title')
@@ -15,7 +25,7 @@ if (homeBanner) {
   window.onscroll = function () {
       "use strict";
       if (document.documentElement.scrollTop >= 900 ) {
-          console.log('if')
+          // console.log('if')
           navbar.classList.add("navbar-colored");
           title.innerHTML = "FERME DE BEAU PRINTEMPS";
           tabs.innerHTML = "<a href=" + "/products" + ">Nos Produits</a><a href=" + "/delivery_zone" + ">Zone de Livraison</a>";

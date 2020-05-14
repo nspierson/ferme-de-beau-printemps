@@ -13,7 +13,18 @@
   <!--         <div class="orders-date"> -->
             <ul>
               <% @all_orders.where(state: 'paid').reverse.each do |order| %>
-                <li><p><%= order.created_at.strftime("%d %b. %Y") %> <%= link_to "...", order_markasdelivered_path(order) %></p></li>
+                <li><p><%= order.created_at.strftime("%d %b. %Y") %>,
+                  <% if order.delivered == true %>
+                    <%= link_to order_markasdelivered_path(order), remote: true, data: { confirm: "Êtes-vous sûr ?" } do %>
+                      <i class="far fa-envelope undelivered" style="color:#43E140;"></i>
+                    <% end %>
+                    </p></li>
+                  <% else %>
+                    <%= link_to order_markasdelivered_path(order), remote: true, data: { confirm: "Êtes-vous sûr ?" } do %>
+                      <i class="far fa-envelope undelivered"></i>
+                    <% end %>
+                    </p></li>
+                  <% end %>
               <% end %>
             </ul>
           </div>

@@ -83,6 +83,9 @@ class OrdersController < ApplicationController
     @order.save
     user = User.find(@order.user_id)
     UserMailer.order_delivery(user).deliver_now
-    redirect_to orders_path
+    respond_to do |format|
+      format.html { redirect_to orders_path }
+      format.js
+    end
   end
 end
