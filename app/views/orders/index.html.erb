@@ -13,7 +13,7 @@
   <!--         <div class="orders-date"> -->
             <ul>
               <% @all_orders.where(state: 'paid').reverse.each do |order| %>
-                <li><p><%= order.created_at.strftime("%d %b. %Y") %>,
+                <li><p><%= order.created_at.strftime("%d %b. %Y") %>
                   <% if order.delivered == true %>
                     <%= link_to order_markasdelivered_path(order), remote: true, data: { confirm: "Êtes-vous sûr ?" } do %>
                       <i class="far fa-envelope undelivered" style="color:#43E140;"></i>
@@ -21,7 +21,7 @@
                     </p></li>
                   <% else %>
                     <%= link_to order_markasdelivered_path(order), remote: true, data: { confirm: "Êtes-vous sûr ?" } do %>
-                      <i class="far fa-envelope undelivered"></i>
+                      <i class="far fa-envelope undelivered" style="color: black;"></i>
                     <% end %>
                     </p></li>
                   <% end %>
@@ -97,7 +97,7 @@
           <% end %>
         <% else %>
           <%= link_to recipe_displayrecip_path(recipe), remote: true do %>
-            <li><i id="podCrownrr" class="fas fa-crown"></i></li>
+            <li><i id="podCrownrr" class="fas fa-crown" style="color: black;"></i></li>
           <% end %>
         <% end %>
       <% end %>

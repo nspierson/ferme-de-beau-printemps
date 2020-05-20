@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
         u = User.find(session[:user_id])
       end
     else
-      u = User.new(:first_name => "guest#{Time.now.to_i}#{rand(100)}", :email => "guest@example.com")
+      u = User.new(:first_name => "guest#{Time.now.to_i}#{rand(100)}", :email => "guest#{Time.now.to_i}#{rand(100)}@example.com")
       u.save!(:validate => false)
       session[:user_id] = u.id
     end

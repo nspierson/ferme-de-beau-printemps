@@ -2,13 +2,10 @@ class PaymentsController < ApplicationController
   def new
     @order = current_or_guest_user.orders.where(state: 'pending').find(params[:order_id])
     @cart_total = current_or_guest_user.cart_total_price
-    @delivery_fee = OrderItem.find(@order.order_item_ids).map { |prod| prod.delivery_fee }.max
+    if current_or_guest_user.order_total_weight >= 10000 || current_or_guest_user.order_total_weight == 0
+      @delivery_fee = 0
+    else
+      @delivery_fee = 2.10
+    end
   end
-
-  # def get_delivery_fee(order)
-  #   delivery_fees = OrderItem.find(order.order_item_ids).map
-  #   delivery_fee = delivery_fees.max
-  #   return delivery_fee
-  # end
-
 end

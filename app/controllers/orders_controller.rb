@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     cart = @user.current_user_cart
     total_price = @user.cart_total_price
     # delivery_fee = (@user.get_delivery_fees.to_i * 100)
-    total_weight = @user.get_total_weight
+    total_weight = @user.get_cart_total_weight
     if total_weight >= 10000
       delivery_fee = 0
     else
