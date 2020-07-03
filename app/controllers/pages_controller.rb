@@ -36,6 +36,9 @@ class PagesController < ApplicationController
     @contact = Contact.all.first
   end
 
+  def elevage
+  end
+
   def dashboard
     @orders = Order.all
     @products = Product.all
