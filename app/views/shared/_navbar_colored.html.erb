@@ -39,6 +39,7 @@
                 <%= link_to "Modifier contacts", edit_contact_path(Contact.first), class: "dropdown-item" %>
                 <%= link_to "Nouveau produit", new_product_path, class: "dropdown-item" %>
                 <%= link_to "Nouvelle catégorie", new_category_path, class: "dropdown-item" %>
+                <%= link_to "Nouvelle recette", new_recipe_path, class: "dropdown-item" %>
               <% end %>
               <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
@@ -47,8 +48,8 @@
         <% end %>
       </div>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item" style="color: white;">
+          <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
