@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   after_create :send_welcome_email
   has_many :orders, dependent: :nullify
-  has_many :orders_items, dependent: :nullify
+  has_many :order_items, dependent: :nullify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
