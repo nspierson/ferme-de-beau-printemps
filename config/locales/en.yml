@@ -30,4 +30,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        email: "Addresse e-mail"
+        password: "Mot de passe"
+        city: "Ville"
+        postal_code: "Code postal"
+        street_number: "N° de voie"
+        street_name: "Nom de rue"
+        first_name: "Prénom"
+        last_name: "Nom"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "requise"
+              invalid: "invalide"
+            password:
+              blank: "requis"
+            city:
+              blank: "requise"
+            postal_code:
+              blank: "requis"
+            street_number:
+              blank: "requis"
+            street_name:
+              blank: "requis"
+            first_name:
+              blank: "requis"
+            last_name:
+              blank: "requis"
+

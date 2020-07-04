@@ -1,10 +1,17 @@
 class User < ApplicationRecord
   after_create :send_welcome_email
-  has_many :orders
+  has_many :orders, depedent: :nullify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :first_name, presence: {message: "Ce champ ne peut être vide"}
+  validates :last_name, presence: true
+  validates :email, uniqueness: true, format: { with: /\A.*@.*\.com\z/ }
+  validates :street_name, presence: true
+  validates :street_number, presence: true
+  validates :postal_code, presence: true
+  validates :city, presence: true
 
   def current_user_cart
     "cart#{id}"
