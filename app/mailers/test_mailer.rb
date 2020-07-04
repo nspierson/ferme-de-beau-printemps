@@ -8,7 +8,7 @@ class TestMailer < ApplicationMailer
     def hello
       mail(
         :subject => 'Hello from Postmark',
-        :to  => 'contact@nspierson.com',
+        :to  => 'contact@fermedebeauprintemps.fr',
         :from => 'contact@fermedebeauprintemps.fr',
         :html_body => '<strong>Hello</strong> dear Postmark user.',
         :track_opens => 'true')
