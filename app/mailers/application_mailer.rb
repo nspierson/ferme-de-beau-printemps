@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'hxnovic@gmail.com'
+  default from: 'contact@fermedebeauprintemps.fr'
 
   layout 'mailer'
 end

@@ -27,6 +27,12 @@
   color: #D23333;
 }
 
+.footer-copyright {
+  a {
+    color: rgba(0, 0, 0, 0.3);
+  }
+}
+
 .site-links {
   flex-direction: column;
   margin: 15px;

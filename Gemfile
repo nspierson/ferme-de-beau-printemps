@@ -14,6 +14,7 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'bootstrap'
 gem 'nokogiri'
+gem 'postmark-rails'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
