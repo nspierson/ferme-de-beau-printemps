@@ -10,8 +10,8 @@
   </div>
   <div style="min-height: 80vh;" class="container">
     <p style="margin-top: 15px;"><strong><%=  %> <%= pluralize(@category.product_categories.size, 'Produit') %> dans la catégorie <%= @category.name %> actuellement :</strong></p>
-    <div class="btn-group dropright" style="margin: 20px 0;">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="btn-group" style="margin: 20px 0;">
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdownbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Catégories
       </button>
       <div class="dropdown-menu">
