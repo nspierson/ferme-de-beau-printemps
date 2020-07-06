@@ -51,8 +51,12 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @delivery_fee = OrderItem.find(@order.order_item_ids).map { |prod| prod.delivery_fee }.max
     @user = User.find(@order.user_id)
+    if @user.order_total_weight >= 10000
+      @delivery_fee = 0
+    else
+      @delivery_fee = 2.10
+    end
     @order_items = OrderItem.where(order_id: @order.id)
     @items = []
     @order_items.each do |item|
