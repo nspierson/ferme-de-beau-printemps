@@ -2,7 +2,6 @@ import "bootstrap";
 const stripe = Stripe('pk_test_pWFCbIFHRFsjcdrkgpjQYLq200G6vlRXfx');
 
 const test = document.querySelectorAll('#podCrownrr');
-console.log(test);
 test.forEach(item => item.addEventListener('click', (event) => {
   item.style.color = "#43E140";
 }))
@@ -15,20 +14,21 @@ undelivered_order.forEach(item => item.addEventListener('click', event => {
 
 
 
-mark_delivered();
+// mark_delivered();
 
-const homeBanner = document.querySelector('.home_banner')
+const homeBanner = document.querySelector('.home_banner');
 const navbar = document.querySelector('.navbar');
-const title = document.querySelector('.title')
-const tabs = document.querySelector('.tabs')
+const title = document.querySelector('.title');
+const tabs = document.querySelector('.tabs');
+const scroll = document.getElementById('scroll');
 if (homeBanner) {
   window.onscroll = function () {
       "use strict";
-      if (document.documentElement.scrollTop >= 900 ) {
+      if (document.documentElement.scrollTop >= scroll.offsetTop ) {
           // console.log('if')
           navbar.classList.add("navbar-colored");
           title.innerHTML = "FERME DE BEAU PRINTEMPS";
-          tabs.innerHTML = "<a href=" + "/products" + ">Nos Produits</a><a href=" + "/delivery_zone" + ">Zone de Livraison</a>";
+          tabs.innerHTML = "<a href=" + "/products" + ">Nos Produits</a><a href=" + "/delivery_zone" + ">Zone de Livraison</a>" + "<a href=" + "/elevage" + ">Notre Élevage</a>";
           navbar.classList.remove("navbar-lewagon");
       }
       else {
@@ -66,7 +66,6 @@ if (bob) {
 }
 
 const modal = document.querySelector('#modal')
-console.log(modal)
 if (btn) {
   btn.addEventListener('click', (event) => {
     modal.modal('toggle')
