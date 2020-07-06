@@ -9,7 +9,7 @@
     <div class="image-recipe">
       <div class="product-image">
         <%#= image_tag(@product.show_image_url, height: 320, width: 530) %>
-        <%= cl_image_tag @product.photo.key, height: 320, width: 530, crop: :fill %>
+        <%= cl_image_tag @product.photo.key, height: 320, width: 530, crop: :pad %>
       </div>
 <!--  -->
     </div>
@@ -22,11 +22,10 @@
       </div>
       <%#= raise %>
       <div class="description">
-        <p>Acompte de <%= @product.price %>€ à la commande<br>21€/kg soit 52,5€ au total</p>
         <p><strong>Votre colis contient :</strong></p>
         <p> <em><%= sanitize @product.description %></em></p>
         <p><strong>Conditions de vente & Livraison :</strong></p>
-          <p><strong>Acompte de 20€ & Frais de ports de <%= @product.delivery_fee %>€</strong> à régler en ligne lors de la commande (le solde sera à régler lors de la livraison selon le poids exact du colis +/- 5%
+          <p><strong>Acompte de <%= @product.price %>€ & Frais de ports de 2,10€ si poids total de la commande inférieur à 10kg</strong> à régler en ligne lors de la commande (le solde sera à régler lors de la livraison selon le poids exact du colis +/- 5%
           Pour toute question appelez Michel au <strong>06 58 96 38 05</strong> !
           <p><strong>Informations complementaires sur nos produits :</strong></p>
           <p>Viande de race Limousine issue de la Ferme de Beau Printemps à Petit-Réderching, exploitée par la famille BOTZUNG en Agriculture Biologique.
