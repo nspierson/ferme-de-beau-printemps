@@ -34,8 +34,8 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: 1,
       }],
-      success_url: order_url(order),
-      cancel_url: 'http://localhost:3000/products'
+      success_url: order_path(order),
+      cancel_url: root_path
     )
     order.update(checkout_session_id: session.id)
     REDIS.del cart

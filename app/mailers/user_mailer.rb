@@ -7,17 +7,16 @@ class UserMailer < ApplicationMailer
   def welcome(user)
     @user = user
 
-    mail to: user.email, subject: "Confirmation d'inscription - Ferme de Beau Printemps"
+    mail to: user.email, subject: "Ferme de Beau Printemps - Confirmation d'inscription"
   end
 
   def order_delivery(user)
     @user = user
 
-    mail to: user.email, subject: "Livraison de votre commande - Ferme de Beau Printemps"
+    mail to: user.email, subject: "Ferme de Beau Printemps - Livraison de votre commande"
   end
 
   def order_success(name, email)
-
-    mail to: email, subject: " #{name}, confirmation de votre commande - Ferme de Beau Printemps"
+    mail to: email, subject: "Ferme de Beau Printemps - Confirmation de votre commande"
   end
 end

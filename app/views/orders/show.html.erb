@@ -27,13 +27,13 @@
         <p class="text-center">Frais de livraison: <strong><%= @delivery_fee %>€</strong></p>
         <p class="text-center">Prix total: <strong><%= @order.amount_cents + @delivery_fee %>€</strong></p>
         <% if @order.state == "paid" %>
-          <p class="text-center">Statut: Paiement confirmé</p>
+          <p class="text-center">Statut:<strong> Paiement confirmé</strong></p>
         <% else %>
-          <p class=text-center>Statut: Paiement en attente</p>
+          <p class=text-center>Statut:<strong> Paiement en attente</strong></p>
         <% end %>
         <p class="text-center">Client: <strong><%= @order.client_name %></strong></p>
         <p class="text-center">Adresse de livraison: <strong><%= @order.street %>, <%= @order.postal_code %>, <%= @order.city %>, <%= @order.country %>.</strong></p>
-        <p class="text-center">Envoyer une estimation de la date de livraison cette adresse: <strong><%= @order.client_email %></strong></p>
+        <p class="text-center">Adresse email: <strong><%= @order.client_email %></strong></p>
         <p class="text-center"><%= link_to 'Retour à la boutique', products_path, class: "cart-btn-ctn" %></p>
         <p class="text-center"><%= link_to 'Retour aux commandes', orders_path %></p>
       </div>
@@ -63,6 +63,11 @@
     <div class="order-info">
       <p class="text-center">Frais de livraison: <strong><%= @delivery_fee %>€</strong></p>
       <p class="text-center">Prix total: <strong><%= @order.amount_cents + @delivery_fee %>€</strong></p>
+      <% if @order.state == "paid" %>
+        <p class="text-center"><strong>Statut: Paiement confirmé</strong></p>
+      <% else %>
+        <p class=text-center><strong>Statut: Paiement en attente</strong></p>
+      <% end %>
       <p class="text-center">Adresse de livraison: <strong><%= @order.client_name %>, <%= @order.street %> <%= @order.postal_code %>, <%= @order.city %>, <%= @order.country %>.</strong></p>
       <p class="text-center">La date de livraison ainsi que d'autres informations utiles au bon déroulement de votre commande vous seront transmis rapidement par e-mail à cette adresse: <strong><%= @order.client_email %></strong></p>
       <p class="text-center"><%= link_to 'Retour à la boutique', products_path, class: "cart-btn-ctn" %></p>
