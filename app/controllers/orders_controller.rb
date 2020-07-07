@@ -52,12 +52,12 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @user = User.find(@order.user_id)
+    @order_items = OrderItem.where(order_id: @order.id)
     if @user.order_total_weight >= 10000
       @delivery_fee = 0
     else
       @delivery_fee = 2.10
     end
-    @order_items = OrderItem.where(order_id: @order.id)
     @items = []
     @order_items.each do |item|
       @items << Product.find(item.product_id)
