@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :order_items
+  has_many :order_items, dependent: :nullify
   monetize :amount_cents
 
   def create
