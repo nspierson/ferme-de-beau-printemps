@@ -4,10 +4,10 @@
     <h3 style="margin-top: 100px;" class="text-center">Commande du <%= @order.created_at.strftime("%d %b. %Y") %></h3>
 
     <% @order_items.each do |item| %>
-    <% product = Product.find(item.product_id) %>
+    <%# product = Product.find(item.product_id) %>
     <div class="col-10 offset-1 cart-grid">
       <div class="cart-product d-flex align-items-center">
-        <div class="cart-product-img"><%= image_tag(product.show_image_url, height: '64', width: '96') %></div>
+        <div class="cart-product-img"><%= image_tag(Product.find(item.product_id).show_image_url, height: '64', width: '96') %></div>
         <div class="cart-product-name">
           <p><%= product.name %><br>
         </div>
